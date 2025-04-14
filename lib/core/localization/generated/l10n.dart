@@ -75,6 +75,91 @@ class Strings {
     );
   }
 
+  /// `Tablet`
+  String get tablet {
+    return Intl.message('Tablet', name: 'tablet', desc: '', args: []);
+  }
+
+  /// `Capsule`
+  String get capsule {
+    return Intl.message('Capsule', name: 'capsule', desc: '', args: []);
+  }
+
+  /// `Injection`
+  String get injection {
+    return Intl.message('Injection', name: 'injection', desc: '', args: []);
+  }
+
+  /// `Syrup`
+  String get syrup {
+    return Intl.message('Syrup', name: 'syrup', desc: '', args: []);
+  }
+
+  /// `Other`
+  String get other {
+    return Intl.message('Other', name: 'other', desc: '', args: []);
+  }
+
+  /// `pieces`
+  String get pieces {
+    return Intl.message('pieces', name: 'pieces', desc: '', args: []);
+  }
+
+  /// `ml`
+  String get ml {
+    return Intl.message('ml', name: 'ml', desc: '', args: []);
+  }
+
+  /// `units`
+  String get units {
+    return Intl.message('units', name: 'units', desc: '', args: []);
+  }
+
+  /// `Running`
+  String get running {
+    return Intl.message('Running', name: 'running', desc: '', args: []);
+  }
+
+  /// `Swimming`
+  String get swimming {
+    return Intl.message('Swimming', name: 'swimming', desc: '', args: []);
+  }
+
+  /// `Cycling`
+  String get cycling {
+    return Intl.message('Cycling', name: 'cycling', desc: '', args: []);
+  }
+
+  /// `Weight Training`
+  String get weightTraining {
+    return Intl.message(
+      'Weight Training',
+      name: 'weightTraining',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Walking`
+  String get walking {
+    return Intl.message('Walking', name: 'walking', desc: '', args: []);
+  }
+
+  /// `Tennis`
+  String get tennis {
+    return Intl.message('Tennis', name: 'tennis', desc: '', args: []);
+  }
+
+  /// `Gymnastics`
+  String get gymnastics {
+    return Intl.message('Gymnastics', name: 'gymnastics', desc: '', args: []);
+  }
+
+  /// `Bouldering`
+  String get bouldering {
+    return Intl.message('Bouldering', name: 'bouldering', desc: '', args: []);
+  }
+
   // skipped getter for the '' key
 }
 

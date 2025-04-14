@@ -1,3 +1,4 @@
+import 'package:healthque_wear_os/features/firebase_sync/firebase_sync.dart';
 import 'package:wear_os_plugin/wear_os_scroll_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,6 +31,7 @@ class _SignInPageState extends State<SignInPage> {
               listener: (context, state) {
                 if (state is AuthStateAuthenticated) {
                   context.go(Routes.dashboardPage);
+                  context.read<FirebaseSyncCubit>().loadUserData();
                 }
               },
               builder: (context, state) {

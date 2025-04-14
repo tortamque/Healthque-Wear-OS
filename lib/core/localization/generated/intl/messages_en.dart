@@ -22,11 +22,27 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "bouldering": MessageLookupByLibrary.simpleMessage("Bouldering"),
+    "capsule": MessageLookupByLibrary.simpleMessage("Capsule"),
+    "cycling": MessageLookupByLibrary.simpleMessage("Cycling"),
+    "gymnastics": MessageLookupByLibrary.simpleMessage("Gymnastics"),
+    "injection": MessageLookupByLibrary.simpleMessage("Injection"),
+    "ml": MessageLookupByLibrary.simpleMessage("ml"),
+    "other": MessageLookupByLibrary.simpleMessage("Other"),
+    "pieces": MessageLookupByLibrary.simpleMessage("pieces"),
+    "running": MessageLookupByLibrary.simpleMessage("Running"),
     "signInWithGoogle": MessageLookupByLibrary.simpleMessage(
       "Sign In with Google",
     ),
     "signInWithGoogleAccount": MessageLookupByLibrary.simpleMessage(
       "Sign In with your Google account",
     ),
+    "swimming": MessageLookupByLibrary.simpleMessage("Swimming"),
+    "syrup": MessageLookupByLibrary.simpleMessage("Syrup"),
+    "tablet": MessageLookupByLibrary.simpleMessage("Tablet"),
+    "tennis": MessageLookupByLibrary.simpleMessage("Tennis"),
+    "units": MessageLookupByLibrary.simpleMessage("units"),
+    "walking": MessageLookupByLibrary.simpleMessage("Walking"),
+    "weightTraining": MessageLookupByLibrary.simpleMessage("Weight Training"),
   };
 }
