@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthque_wear_os/config/routes/routes.dart';
+import 'package:healthque_wear_os/core/shared/shared.dart';
 import 'package:healthque_wear_os/features/authorization/authorization.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -19,7 +20,7 @@ class SplashScreen extends StatelessWidget {
       },
       child: const Scaffold(
         body: Center(
-          child: CircularProgressIndicator(),
+          child: UnifiedCircularProgressIndicator(),
         ),
       ),
     );
