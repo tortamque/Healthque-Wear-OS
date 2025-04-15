@@ -13,3 +13,4 @@ export 'water_tracking/water_tracking.dart';
 export 'workout/workout.dart';
 export 'workout/workout_type.dart';
 export 'workout/workouts.dart';
+export 'firebase_sync_data.dart';

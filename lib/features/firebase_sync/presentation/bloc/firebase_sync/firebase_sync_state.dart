@@ -5,7 +5,6 @@ sealed class FirebaseSyncState with _$FirebaseSyncState {
   const factory FirebaseSyncState({
     @Default(false) bool isLoading,
     String? errorMessage,
-    @Default(false) bool syncSuccess,
-    Map<String, dynamic>? data,
+    FirebaseSyncData? syncData,
   }) = _FirebaseSyncState;
 }

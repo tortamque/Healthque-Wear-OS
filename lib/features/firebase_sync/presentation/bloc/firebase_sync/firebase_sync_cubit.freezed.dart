@@ -17,8 +17,7 @@ T _$identity<T>(T value) => value;
 mixin _$FirebaseSyncState {
   bool get isLoading;
   String? get errorMessage;
-  bool get syncSuccess;
-  Map<String, dynamic>? get data;
+  FirebaseSyncData? get syncData;
 
   /// Create a copy of FirebaseSyncState
   /// with the given fields replaced by the non-null parameter values.
@@ -37,18 +36,17 @@ mixin _$FirebaseSyncState {
                 other.isLoading == isLoading) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
-            (identical(other.syncSuccess, syncSuccess) ||
-                other.syncSuccess == syncSuccess) &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.syncData, syncData) ||
+                other.syncData == syncData));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, errorMessage,
-      syncSuccess, const DeepCollectionEquality().hash(data));
+  int get hashCode =>
+      Object.hash(runtimeType, isLoading, errorMessage, syncData);
 
   @override
   String toString() {
-    return 'FirebaseSyncState(isLoading: $isLoading, errorMessage: $errorMessage, syncSuccess: $syncSuccess, data: $data)';
+    return 'FirebaseSyncState(isLoading: $isLoading, errorMessage: $errorMessage, syncData: $syncData)';
   }
 }
 
@@ -58,11 +56,9 @@ abstract mixin class $FirebaseSyncStateCopyWith<$Res> {
           FirebaseSyncState value, $Res Function(FirebaseSyncState) _then) =
       _$FirebaseSyncStateCopyWithImpl;
   @useResult
-  $Res call(
-      {bool isLoading,
-      String? errorMessage,
-      bool syncSuccess,
-      Map<String, dynamic>? data});
+  $Res call({bool isLoading, String? errorMessage, FirebaseSyncData? syncData});
+
+  $FirebaseSyncDataCopyWith<$Res>? get syncData;
 }
 
 /// @nodoc
@@ -80,8 +76,7 @@ class _$FirebaseSyncStateCopyWithImpl<$Res>
   $Res call({
     Object? isLoading = null,
     Object? errorMessage = freezed,
-    Object? syncSuccess = null,
-    Object? data = freezed,
+    Object? syncData = freezed,
   }) {
     return _then(_self.copyWith(
       isLoading: null == isLoading
@@ -92,15 +87,25 @@ class _$FirebaseSyncStateCopyWithImpl<$Res>
           ? _self.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
-      syncSuccess: null == syncSuccess
-          ? _self.syncSuccess
-          : syncSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      data: freezed == data
-          ? _self.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+      syncData: freezed == syncData
+          ? _self.syncData
+          : syncData // ignore: cast_nullable_to_non_nullable
+              as FirebaseSyncData?,
     ));
+  }
+
+  /// Create a copy of FirebaseSyncState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $FirebaseSyncDataCopyWith<$Res>? get syncData {
+    if (_self.syncData == null) {
+      return null;
+    }
+
+    return $FirebaseSyncDataCopyWith<$Res>(_self.syncData!, (value) {
+      return _then(_self.copyWith(syncData: value));
+    });
   }
 }
 
@@ -108,11 +113,7 @@ class _$FirebaseSyncStateCopyWithImpl<$Res>
 
 class _FirebaseSyncState implements FirebaseSyncState {
   const _FirebaseSyncState(
-      {this.isLoading = false,
-      this.errorMessage,
-      this.syncSuccess = false,
-      final Map<String, dynamic>? data})
-      : _data = data;
+      {this.isLoading = false, this.errorMessage, this.syncData});
 
   @override
   @JsonKey()
@@ -120,17 +121,7 @@ class _FirebaseSyncState implements FirebaseSyncState {
   @override
   final String? errorMessage;
   @override
-  @JsonKey()
-  final bool syncSuccess;
-  final Map<String, dynamic>? _data;
-  @override
-  Map<String, dynamic>? get data {
-    final value = _data;
-    if (value == null) return null;
-    if (_data is EqualUnmodifiableMapView) return _data;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
+  final FirebaseSyncData? syncData;
 
   /// Create a copy of FirebaseSyncState
   /// with the given fields replaced by the non-null parameter values.
@@ -149,18 +140,17 @@ class _FirebaseSyncState implements FirebaseSyncState {
                 other.isLoading == isLoading) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
-            (identical(other.syncSuccess, syncSuccess) ||
-                other.syncSuccess == syncSuccess) &&
-            const DeepCollectionEquality().equals(other._data, _data));
+            (identical(other.syncData, syncData) ||
+                other.syncData == syncData));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, errorMessage,
-      syncSuccess, const DeepCollectionEquality().hash(_data));
+  int get hashCode =>
+      Object.hash(runtimeType, isLoading, errorMessage, syncData);
 
   @override
   String toString() {
-    return 'FirebaseSyncState(isLoading: $isLoading, errorMessage: $errorMessage, syncSuccess: $syncSuccess, data: $data)';
+    return 'FirebaseSyncState(isLoading: $isLoading, errorMessage: $errorMessage, syncData: $syncData)';
   }
 }
 
@@ -172,11 +162,10 @@ abstract mixin class _$FirebaseSyncStateCopyWith<$Res>
       __$FirebaseSyncStateCopyWithImpl;
   @override
   @useResult
-  $Res call(
-      {bool isLoading,
-      String? errorMessage,
-      bool syncSuccess,
-      Map<String, dynamic>? data});
+  $Res call({bool isLoading, String? errorMessage, FirebaseSyncData? syncData});
+
+  @override
+  $FirebaseSyncDataCopyWith<$Res>? get syncData;
 }
 
 /// @nodoc
@@ -194,8 +183,7 @@ class __$FirebaseSyncStateCopyWithImpl<$Res>
   $Res call({
     Object? isLoading = null,
     Object? errorMessage = freezed,
-    Object? syncSuccess = null,
-    Object? data = freezed,
+    Object? syncData = freezed,
   }) {
     return _then(_FirebaseSyncState(
       isLoading: null == isLoading
@@ -206,15 +194,25 @@ class __$FirebaseSyncStateCopyWithImpl<$Res>
           ? _self.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
-      syncSuccess: null == syncSuccess
-          ? _self.syncSuccess
-          : syncSuccess // ignore: cast_nullable_to_non_nullable
-              as bool,
-      data: freezed == data
-          ? _self._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+      syncData: freezed == syncData
+          ? _self.syncData
+          : syncData // ignore: cast_nullable_to_non_nullable
+              as FirebaseSyncData?,
     ));
+  }
+
+  /// Create a copy of FirebaseSyncState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $FirebaseSyncDataCopyWith<$Res>? get syncData {
+    if (_self.syncData == null) {
+      return null;
+    }
+
+    return $FirebaseSyncDataCopyWith<$Res>(_self.syncData!, (value) {
+      return _then(_self.copyWith(syncData: value));
+    });
   }
 }
 

@@ -33,8 +33,7 @@ class HealthqueWearOSApp extends StatelessWidget {
         BlocProvider<AuthCubit>(create: (_) => AuthCubit()),
         BlocProvider<FirebaseSyncCubit>(
           create: (_) =>
-              FirebaseSyncCubit(sl(), sl(), sl(), sl(), sl(), sl(), sl(), sl(), sl(), sl(), sl(), sl(), sl(), sl())
-                ..loadUserData(),
+              FirebaseSyncCubit(sl(), sl(), sl(), sl(), sl(), sl(), sl(), sl(), sl(), sl(), sl(), sl(), sl())..init(),
           lazy: false,
         ),
       ],

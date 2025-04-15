@@ -7,7 +7,6 @@ part 'firebase_sync_state.dart';
 part 'firebase_sync_cubit.freezed.dart';
 
 class FirebaseSyncCubit extends Cubit<FirebaseSyncState> {
-  final SaveUserDataUseCase _saveUserDataUseCase;
   final GetUserDataUseCase _getUserDataUseCase;
   final UserHiveManager _userHiveManager;
   final WorkoutsHiveManager _workoutsHiveManager;
@@ -23,7 +22,6 @@ class FirebaseSyncCubit extends Cubit<FirebaseSyncState> {
   final LocaleHiveManager _localeHiveManager;
 
   FirebaseSyncCubit(
-    this._saveUserDataUseCase,
     this._getUserDataUseCase,
     this._userHiveManager,
     this._workoutsHiveManager,
@@ -39,87 +37,120 @@ class FirebaseSyncCubit extends Cubit<FirebaseSyncState> {
     this._localeHiveManager,
   ) : super(FirebaseSyncState());
 
-  Future<void> syncUserData() async {
+  Future<void> loadUserData() async {
     try {
-      print('here');
-      emit(state.copyWith(isLoading: true, syncSuccess: false));
+      emit(state.copyWith(isLoading: true));
+      final jsonData = await _getUserDataUseCase(null);
+      if (jsonData == null) {
+        emit(
+          state.copyWith(isLoading: false),
+        );
+        return;
+      }
 
-      final user = _userHiveManager.userBox.get(_userHiveManager.hiveKey);
+      final Map<String, dynamic> profileJson =
+          jsonData["profile"] != null ? _castMapDeep(jsonData["profile"] as Map) : {};
+      final Map<String, dynamic> workoutsJson =
+          jsonData["workouts"] != null ? _castMapDeep(jsonData["workouts"] as Map) : {"workouts": []};
+      final Map<String, dynamic> bloodPressureRecordsJson = jsonData["bloodPressureRecords"] != null
+          ? _castMapDeep(jsonData["bloodPressureRecords"] as Map)
+          : {"records": []};
+      final Map<String, dynamic> temperatureRecordsJson = jsonData["temperatureRecords"] != null
+          ? _castMapDeep(jsonData["temperatureRecords"] as Map)
+          : {"records": []};
+      final Map<String, dynamic> bloodSugarRecordsJson =
+          jsonData["bloodSugarRecords"] != null ? _castMapDeep(jsonData["bloodSugarRecords"] as Map) : {"records": []};
+      final Map<String, dynamic> waterRecordsJson =
+          jsonData["waterRecords"] != null ? _castMapDeep(jsonData["waterRecords"] as Map) : {"records": []};
+      final Map<String, dynamic> stressMoodRecordsJson =
+          jsonData["stressMoodRecords"] != null ? _castMapDeep(jsonData["stressMoodRecords"] as Map) : {"records": []};
+      final Map<String, dynamic> notificationsJson =
+          jsonData["notifications"] != null ? _castMapDeep(jsonData["notifications"] as Map) : {"notifications": []};
+      final Map<String, dynamic> courseTreatmentsJson =
+          jsonData["courseTreatments"] != null ? _castMapDeep(jsonData["courseTreatments"] as Map) : {"courses": []};
+      final Map<String, dynamic> medicationsJson =
+          jsonData["medications"] != null ? _castMapDeep(jsonData["medications"] as Map) : {"medications": []};
+      final Map<String, dynamic> themePreferenceJson =
+          jsonData["themePreference"] != null ? _castMapDeep(jsonData["themePreference"] as Map) : {};
+      final Map<String, dynamic> localeJson =
+          jsonData["locale"] != null ? _castMapDeep(jsonData["locale"] as Map) : {"locale": "en"};
 
-      final workouts = _workoutsHiveManager.workoutsBox.get(_workoutsHiveManager.hiveKey);
-
-      final bloodPressureRecords =
-          _bloodPressureTrackingHiveManager.bloodPressureBox.get(_bloodPressureTrackingHiveManager.hiveKey);
-
-      final temperatureRecords =
-          _temperatureTrackingHiveManager.temperatureRecordsBox.get(_temperatureTrackingHiveManager.hiveKey);
-
-      final bloodSugarRecords =
-          _bloodSugarTrackingHiveManager.bloodSugarRecordsBox.get(_bloodSugarTrackingHiveManager.hiveKey);
-
-      final waterRecords = _waterTrackingHiveManager.waterRecordsBox.get(_waterTrackingHiveManager.hiveKey);
-
-      final stressMoodRecords =
-          _stressMoodTrackingHiveManager.stressMoodBox.get(_stressMoodTrackingHiveManager.hiveKey);
-
-      final notifications = _notificationsHiveManager.notifications.get(_notificationsHiveManager.hiveKey);
-
-      final courseTreatments = _courseTreatmentHiveManager.courseTreatmentsBox.get(_courseTreatmentHiveManager.hiveKey);
-
-      final medications =
-          _medicationTrackingHiveManager.medicationTrackingBox.get(_medicationTrackingHiveManager.hiveKey);
-
-      final themePreference = _themePreferenceHiveManager.themePreferenceBox.get(_themePreferenceHiveManager.hiveKey);
-
-      final localeString = _localeHiveManager.localeBox.get(_localeHiveManager.hiveKey);
-
-      final SaveUserDataParams params = SaveUserDataParams(
-        profile: user?.toJson() ?? {},
-        workouts: workouts?.toJson() ?? {"workouts": []},
-        bloodPressureRecords: bloodPressureRecords == null
-            ? {"records": []}
-            : {"records": bloodPressureRecords.records.map((e) => e.toJson()).toList()},
-        temperatureRecords: temperatureRecords == null
-            ? {"records": []}
-            : {"records": temperatureRecords.records.map((e) => e.toJson()).toList()},
-        bloodSugarRecords: bloodSugarRecords == null
-            ? {"records": []}
-            : {"records": bloodSugarRecords.records.map((e) => e.toJson()).toList()},
-        waterRecords:
-            waterRecords == null ? {"records": []} : {"records": waterRecords.records.map((e) => e.toJson()).toList()},
-        stressMoodRecords: stressMoodRecords == null
-            ? {"records": []}
-            : {"records": stressMoodRecords.records.map((e) => e.toJson()).toList()},
-        notifications: notifications == null
-            ? {"notifications": []}
-            : {"notifications": notifications.notifications.map((e) => e.toJson()).toList()},
-        courseTreatments: courseTreatments == null
-            ? {"courses": []}
-            : {"courses": courseTreatments.courses.map((e) => e.toJson()).toList()},
-        medications: medications == null
-            ? {"medications": []}
-            : {"medications": medications.medications.map((e) => e.toJson()).toList()},
-        themePreference: themePreference?.toJson() ?? {},
-        locale: {"locale": localeString ?? ""},
+      final FirebaseSyncData parsedData = FirebaseSyncData(
+        profile: User.fromJson(profileJson),
+        workouts: Workouts.fromJson(workoutsJson),
+        bloodPressureRecords: BloodPressureRecords.fromJson(bloodPressureRecordsJson),
+        temperatureRecords: TemperatureRecords.fromJson(temperatureRecordsJson),
+        bloodSugarRecords: BloodSugarRecords.fromJson(bloodSugarRecordsJson),
+        waterRecords: WaterRecords.fromJson(waterRecordsJson),
+        stressMoodRecords: StressMoodRecords.fromJson(stressMoodRecordsJson),
+        notifications: LocalNotifications.fromJson(notificationsJson),
+        courseTreatments: CourseTreatments.fromJson(courseTreatmentsJson),
+        medications: Medications.fromJson(medicationsJson),
+        themePreference: ThemePreference.fromJson(themePreferenceJson),
+        locale: localeJson["locale"] as String,
       );
 
-      await _saveUserDataUseCase.call(params);
-
-      emit(state.copyWith(isLoading: false, syncSuccess: true));
+      emit(state.copyWith(isLoading: false, syncData: parsedData));
     } catch (e) {
       emit(state.copyWith(isLoading: false, errorMessage: e.toString()));
     }
   }
 
-  Future<void> loadUserData() async {
+  Future<void> saveDataToHives(FirebaseSyncData data) async {
     try {
-      emit(state.copyWith(isLoading: true));
-      final data = await _getUserDataUseCase(null);
-      emit(state.copyWith(isLoading: false, data: data));
-      print(state);
+      await _userHiveManager.userBox.put(_userHiveManager.hiveKey, data.profile);
+      await _workoutsHiveManager.workoutsBox.put(_workoutsHiveManager.hiveKey, data.workouts);
+      await _bloodPressureTrackingHiveManager.bloodPressureBox
+          .put(_bloodPressureTrackingHiveManager.hiveKey, data.bloodPressureRecords);
+      await _temperatureTrackingHiveManager.temperatureRecordsBox
+          .put(_temperatureTrackingHiveManager.hiveKey, data.temperatureRecords);
+      await _bloodSugarTrackingHiveManager.bloodSugarRecordsBox
+          .put(_bloodSugarTrackingHiveManager.hiveKey, data.bloodSugarRecords);
+      await _waterTrackingHiveManager.waterRecordsBox.put(_waterTrackingHiveManager.hiveKey, data.waterRecords);
+      await _stressMoodTrackingHiveManager.stressMoodBox
+          .put(_stressMoodTrackingHiveManager.hiveKey, data.stressMoodRecords);
+      await _notificationsHiveManager.notifications.put(_notificationsHiveManager.hiveKey, data.notifications);
+      await _courseTreatmentHiveManager.courseTreatmentsBox
+          .put(_courseTreatmentHiveManager.hiveKey, data.courseTreatments);
+      await _medicationTrackingHiveManager.medicationTrackingBox
+          .put(_medicationTrackingHiveManager.hiveKey, data.medications);
+      await _themePreferenceHiveManager.themePreferenceBox
+          .put(_themePreferenceHiveManager.hiveKey, data.themePreference);
+      await _localeHiveManager.localeBox.put(_localeHiveManager.hiveKey, data.locale);
     } catch (e) {
-      print('error: $e');
-      emit(state.copyWith(isLoading: false, errorMessage: e.toString()));
+      rethrow;
     }
+  }
+
+  Future<void> init() async {
+    try {
+      await loadUserData();
+      if (state.syncData != null) {
+        await saveDataToHives(state.syncData!);
+      }
+    } catch (e) {
+      emit(state.copyWith(errorMessage: e.toString()));
+    }
+  }
+
+  Map<String, dynamic> _castMapDeep(Map<dynamic, dynamic> map) {
+    return map.map((key, value) {
+      final newKey = key is String ? key : key.toString();
+      if (value is Map) {
+        return MapEntry(newKey, _castMapDeep(value));
+      } else if (value is List) {
+        return MapEntry(
+          newKey,
+          value.map((element) {
+            if (element is Map) {
+              return _castMapDeep(element);
+            }
+            return element;
+          }).toList(),
+        );
+      } else {
+        return MapEntry(newKey, value);
+      }
+    });
   }
 }

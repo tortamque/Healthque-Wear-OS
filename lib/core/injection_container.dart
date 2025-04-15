@@ -27,8 +27,7 @@ void initializeDependencies() {
     ..registerSingleton<FirebaseRepository>(FirebaseRepositoryImpl(sl()))
 
     // Use cases
-    ..registerSingleton<GetUserDataUseCase>(GetUserDataUseCase(sl()))
-    ..registerSingleton<SaveUserDataUseCase>(SaveUserDataUseCase(sl()));
+    ..registerSingleton<GetUserDataUseCase>(GetUserDataUseCase(sl()));
 
   // Blocs
 }
