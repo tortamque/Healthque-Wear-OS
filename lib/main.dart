@@ -1,6 +1,8 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:healthque_wear_os/core/shared/shared.dart';
+import 'package:healthque_wear_os/features/firebase_sync/firebase_sync.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:healthque_wear_os/config/config.dart';
 import 'package:healthque_wear_os/config/routes/router.dart';
@@ -10,7 +12,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 import 'core/localization/generated/l10n.dart';
 import 'features/authorization/authorization.dart';
-import 'features/firebase_sync/firebase_sync.dart';
 import 'utils/utils.dart';
 
 void main() async {

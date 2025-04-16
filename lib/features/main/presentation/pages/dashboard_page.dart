@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
+import 'package:healthque_wear_os/config/routes/routes.dart';
 import 'package:healthque_wear_os/core/extensions/context.dart';
 import 'package:healthque_wear_os/core/shared/shared.dart';
 import 'package:healthque_wear_os/features/firebase_sync/firebase_sync.dart';
@@ -35,6 +37,7 @@ class _DashboardPageState extends State<DashboardPage> {
             child: Text(context.strings.noDataInCloud),
           );
         }
+
         return WearOsClipper(
           child: Scaffold(
             body: Padding(
@@ -54,72 +57,56 @@ class _DashboardPageState extends State<DashboardPage> {
                           title: context.strings.workouts,
                           subtitle: context.strings.showWorkouts,
                           icon: Icons.fitness_center_rounded,
-                          onTap: () {
-                            print(context.strings.workoutsTap);
-                          },
+                          onTap: () => context.push(Routes.workoutsPage),
                         ),
                       if (syncData.bloodPressureRecords.records.isNotEmpty)
                         ActionCard(
                           title: context.strings.bloodPressure,
                           subtitle: context.strings.showBloodPressure,
                           icon: Icons.monitor_heart_rounded,
-                          onTap: () {
-                            print(context.strings.bloodPressureTap);
-                          },
+                          onTap: () => context.push(Routes.bloodPressurePage),
                         ),
                       if (syncData.temperatureRecords.records.isNotEmpty)
                         ActionCard(
                           title: context.strings.temperature,
                           subtitle: context.strings.showTemperature,
                           icon: Icons.thermostat,
-                          onTap: () {
-                            print(context.strings.temperatureTap);
-                          },
+                          onTap: () => context.push(Routes.temperaturePage),
                         ),
                       if (syncData.bloodSugarRecords.records.isNotEmpty)
                         ActionCard(
                           title: context.strings.bloodSugar,
                           subtitle: context.strings.showBloodSugar,
                           icon: Icons.show_chart_rounded,
-                          onTap: () {
-                            print(context.strings.bloodSugarTap);
-                          },
+                          onTap: () => context.push(Routes.bloodSugarPage),
                         ),
                       if (syncData.waterRecords.records.isNotEmpty)
                         ActionCard(
                           title: context.strings.water,
                           subtitle: context.strings.showWater,
                           icon: Icons.water_drop_rounded,
-                          onTap: () {
-                            print(context.strings.waterTap);
-                          },
+                          onTap: () => context.push(Routes.waterPage),
                         ),
                       if (syncData.stressMoodRecords.records.isNotEmpty)
                         ActionCard(
                           title: context.strings.stressMood,
                           subtitle: context.strings.showStressMood,
                           icon: Icons.sentiment_satisfied_alt_rounded,
-                          onTap: () {
-                            print(context.strings.stressMoodTap);
-                          },
+                          onTap: () => context.push(Routes.stressMoodPage),
                         ),
                       if (syncData.courseTreatments.courses.isNotEmpty)
                         ActionCard(
                           title: context.strings.courseTreatments,
                           subtitle: context.strings.showCourseTreatments,
                           icon: Icons.event_available_rounded,
-                          onTap: () {
-                            print(context.strings.courseTreatmentsTap);
-                          },
+                          onTap: () => context.push(Routes.courseTreatmentsPage),
                         ),
                       if (syncData.medications.medications.isNotEmpty)
                         ActionCard(
                           title: context.strings.medications,
                           subtitle: context.strings.showMedications,
                           icon: Icons.healing_rounded,
-                          onTap: () {
-                            print(context.strings.medicationsTap);
-                          },
+                          onTap: () => context.push(Routes.medicationsPage),
                         ),
                       const Gap(32),
                     ],

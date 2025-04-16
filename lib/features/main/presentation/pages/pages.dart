@@ -1,0 +1,9 @@
+export 'blood_pressure_page.dart';
+export 'blood_sugar_page.dart';
+export 'dashboard_page.dart';
+export 'medications_page.dart';
+export 'stress_mood_page.dart';
+export 'temperature_page.dart';
+export 'water_page.dart';
+export 'workouts_page.dart';
+export 'course_treatments_page.dart';

@@ -66,8 +66,9 @@ class FirebaseSyncCubit extends Cubit<FirebaseSyncState> {
           jsonData["stressMoodRecords"] != null ? _castMapDeep(jsonData["stressMoodRecords"] as Map) : {"records": []};
       final Map<String, dynamic> notificationsJson =
           jsonData["notifications"] != null ? _castMapDeep(jsonData["notifications"] as Map) : {"notifications": []};
-      final Map<String, dynamic> courseTreatmentsJson =
-          jsonData["courseTreatments"] != null ? _castMapDeep(jsonData["courseTreatments"] as Map) : {"courses": []};
+      final Map<String, dynamic> courseTreatmentsJson = jsonData["courseTreatments"] is Map
+          ? _castMapDeep(jsonData["courseTreatments"] as Map<dynamic, dynamic>)
+          : {"courses": []};
       final Map<String, dynamic> medicationsJson =
           jsonData["medications"] != null ? _castMapDeep(jsonData["medications"] as Map) : {"medications": []};
       final Map<String, dynamic> themePreferenceJson =

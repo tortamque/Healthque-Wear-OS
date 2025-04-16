@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthque_wear_os/config/routes/routes.dart';
 import 'package:healthque_wear_os/features/authorization/authorization.dart';
-import 'package:healthque_wear_os/features/dashboard/dashboard.dart';
+import 'package:healthque_wear_os/features/main/main.dart';
 import 'package:healthque_wear_os/features/splash/splash.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
@@ -22,6 +22,38 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: Routes.splashScreen,
       builder: (context, state) => SplashScreen(),
+    ),
+    GoRoute(
+      path: Routes.workoutsPage,
+      builder: (context, state) => WorkoutsPage(),
+    ),
+    GoRoute(
+      path: Routes.bloodPressurePage,
+      builder: (context, state) => BloodPressurePage(),
+    ),
+    GoRoute(
+      path: Routes.bloodSugarPage,
+      builder: (context, state) => BloodSugarPage(),
+    ),
+    GoRoute(
+      path: Routes.temperaturePage,
+      builder: (context, state) => TemperaturePage(),
+    ),
+    GoRoute(
+      path: Routes.waterPage,
+      builder: (context, state) => WaterPage(),
+    ),
+    GoRoute(
+      path: Routes.stressMoodPage,
+      builder: (context, state) => StressMoodPage(),
+    ),
+    GoRoute(
+      path: Routes.medicationsPage,
+      builder: (context, state) => MedicationsPage(),
+    ),
+    GoRoute(
+      path: Routes.courseTreatmentsPage,
+      builder: (context, state) => CourseTreatmentsPage(),
     ),
   ],
 );
