@@ -605,6 +605,61 @@ class Strings {
     return Intl.message('Mood', name: 'mood', desc: '', args: []);
   }
 
+  /// `Course Duration Trend`
+  String get courseDurationTrend {
+    return Intl.message(
+      'Course Duration Trend',
+      name: 'courseDurationTrend',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Medication Distribution`
+  String get medicationDistribution {
+    return Intl.message(
+      'Medication Distribution',
+      name: 'medicationDistribution',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Course History`
+  String get courseHistory {
+    return Intl.message(
+      'Course History',
+      name: 'courseHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Course: {from} - {to}`
+  String courseFromTo(Object from, Object to) {
+    return Intl.message(
+      'Course: $from - $to',
+      name: 'courseFromTo',
+      desc: '',
+      args: [from, to],
+    );
+  }
+
+  /// `Medication Time`
+  String get medicationTime {
+    return Intl.message(
+      'Medication Time',
+      name: 'medicationTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `d`
+  String get days {
+    return Intl.message('d', name: 'days', desc: '', args: []);
+  }
+
   // skipped getter for the '' key
 }
 

@@ -44,6 +44,8 @@ class _DashboardPageState extends State<DashboardPage> {
         final bloodSugarRecords = syncData.bloodSugarRecords.records;
         final waterRecords = syncData.waterRecords.records;
         final stressMoodRecords = syncData.stressMoodRecords.records;
+        final courseTreatments = syncData.courseTreatments.courses;
+
         return WearOsClipper(
           child: Scaffold(
             body: Padding(
@@ -105,7 +107,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           title: context.strings.courseTreatments,
                           subtitle: context.strings.showCourseTreatments,
                           icon: Icons.event_available_rounded,
-                          onTap: () => context.push(Routes.courseTreatmentsPage),
+                          onTap: () => context.push(Routes.courseTreatmentsPage, extra: courseTreatments),
                         ),
                       if (syncData.medications.medications.isNotEmpty)
                         ActionCard(

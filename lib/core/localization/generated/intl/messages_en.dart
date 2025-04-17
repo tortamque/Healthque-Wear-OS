@@ -30,9 +30,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m4(count) => "${count} workouts";
 
-  static String m5(diastolic) => "Diastolic: ${diastolic} mmHg";
+  static String m5(from, to) => "Course: ${from} - ${to}";
 
-  static String m6(systolic) => "Systolic: ${systolic} mmHg";
+  static String m6(diastolic) => "Diastolic: ${diastolic} mmHg";
+
+  static String m7(systolic) => "Systolic: ${systolic} mmHg";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -60,6 +62,11 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "bouldering": MessageLookupByLibrary.simpleMessage("Bouldering"),
     "capsule": MessageLookupByLibrary.simpleMessage("Capsule"),
+    "courseDurationTrend": MessageLookupByLibrary.simpleMessage(
+      "Course Duration Trend",
+    ),
+    "courseFromTo": m5,
+    "courseHistory": MessageLookupByLibrary.simpleMessage("Course History"),
     "courseTreatments": MessageLookupByLibrary.simpleMessage(
       "Course Treatments",
     ),
@@ -76,14 +83,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "dailyTotalWater": MessageLookupByLibrary.simpleMessage(
       "Daily Total Water",
     ),
+    "days": MessageLookupByLibrary.simpleMessage("d"),
     "degreeCelsius": MessageLookupByLibrary.simpleMessage("°C"),
-    "diastolicAmount": m5,
+    "diastolicAmount": m6,
     "gymnastics": MessageLookupByLibrary.simpleMessage("Gymnastics"),
     "hours": MessageLookupByLibrary.simpleMessage("h"),
     "injection": MessageLookupByLibrary.simpleMessage("Injection"),
     "intensity": MessageLookupByLibrary.simpleMessage("Intensity"),
     "kilometers": MessageLookupByLibrary.simpleMessage("km"),
     "liters": MessageLookupByLibrary.simpleMessage("L"),
+    "medicationDistribution": MessageLookupByLibrary.simpleMessage(
+      "Medication Distribution",
+    ),
+    "medicationTime": MessageLookupByLibrary.simpleMessage("Medication Time"),
     "medications": MessageLookupByLibrary.simpleMessage("Medications"),
     "mgPerDl": MessageLookupByLibrary.simpleMessage(" mg/dL"),
     "minutesLowercase": MessageLookupByLibrary.simpleMessage("min"),
@@ -133,7 +145,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "stressTrend": MessageLookupByLibrary.simpleMessage("Stress Trend"),
     "swimming": MessageLookupByLibrary.simpleMessage("Swimming"),
     "syrup": MessageLookupByLibrary.simpleMessage("Syrup"),
-    "systolicAmount": m6,
+    "systolicAmount": m7,
     "tablet": MessageLookupByLibrary.simpleMessage("Tablet"),
     "temperature": MessageLookupByLibrary.simpleMessage("Temperature"),
     "temperatureHistory": MessageLookupByLibrary.simpleMessage(
