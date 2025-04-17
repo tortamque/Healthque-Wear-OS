@@ -20,13 +20,21 @@ class _WorkoutsPageState extends State<WorkoutsPage> with BackButtonListenerMixi
     return UnifiedBody(
       child: Column(
         children: [
-          Text(context.strings.amountOfEach, textAlign: TextAlign.center),
+          Text(
+            context.strings.amountOfEach,
+            textAlign: TextAlign.center,
+            style: context.textTheme.titleSmall,
+          ),
           WorkoutTypeBarChart(workouts: widget.workouts),
           Gap(8),
           Text(context.strings.workoutDurationOver, textAlign: TextAlign.center),
           WorkoutDurationLineChart(workouts: widget.workouts),
           Gap(8),
-          Text(context.strings.workoutHistory, textAlign: TextAlign.center),
+          Text(
+            context.strings.workoutHistory,
+            textAlign: TextAlign.center,
+            style: context.textTheme.titleSmall,
+          ),
           WorkoutListView(workouts: widget.workouts),
         ],
       ),

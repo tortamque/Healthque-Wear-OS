@@ -420,6 +420,56 @@ class Strings {
     );
   }
 
+  /// `Blood Pressure Trend`
+  String get bloodPressureTrend {
+    return Intl.message(
+      'Blood Pressure Trend',
+      name: 'bloodPressureTrend',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Daily Average Blood Pressure`
+  String get dailyAverageBp {
+    return Intl.message(
+      'Daily Average Blood Pressure',
+      name: 'dailyAverageBp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Blood Pressure History`
+  String get bloodPressureHistory {
+    return Intl.message(
+      'Blood Pressure History',
+      name: 'bloodPressureHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Systolic: {systolic} mmHg`
+  String systolicAmount(Object systolic) {
+    return Intl.message(
+      'Systolic: $systolic mmHg',
+      name: 'systolicAmount',
+      desc: '',
+      args: [systolic],
+    );
+  }
+
+  /// `Diastolic: {diastolic} mmHg`
+  String diastolicAmount(Object diastolic) {
+    return Intl.message(
+      'Diastolic: $diastolic mmHg',
+      name: 'diastolicAmount',
+      desc: '',
+      args: [diastolic],
+    );
+  }
+
   // skipped getter for the '' key
 }
 

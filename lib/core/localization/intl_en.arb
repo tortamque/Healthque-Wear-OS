@@ -53,8 +53,11 @@
   "amountHours": "{amount}h",
   "amountHoursMinutes": "{hours}h {remainingMinutes}m",
   "amountMinutes": "{minutes}m",
-  "": "",
-  "": "",
+  "bloodPressureTrend": "Blood Pressure Trend",
+  "dailyAverageBp": "Daily Average Blood Pressure",
+  "bloodPressureHistory": "Blood Pressure History",
+  "systolicAmount": "Systolic: {systolic} mmHg",
+  "diastolicAmount": "Diastolic: {diastolic} mmHg",
   "": "",
   "": ""
 }

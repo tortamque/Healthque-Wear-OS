@@ -30,6 +30,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m4(count) => "${count} workouts";
 
+  static String m5(diastolic) => "Diastolic: ${diastolic} mmHg";
+
+  static String m6(systolic) => "Systolic: ${systolic} mmHg";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "amountHours": m0,
@@ -41,6 +45,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "amountPercentage": m3,
     "amountWorkouts": m4,
     "bloodPressure": MessageLookupByLibrary.simpleMessage("Blood Pressure"),
+    "bloodPressureHistory": MessageLookupByLibrary.simpleMessage(
+      "Blood Pressure History",
+    ),
+    "bloodPressureTrend": MessageLookupByLibrary.simpleMessage(
+      "Blood Pressure Trend",
+    ),
     "bloodSugar": MessageLookupByLibrary.simpleMessage("Blood Sugar"),
     "bouldering": MessageLookupByLibrary.simpleMessage("Bouldering"),
     "capsule": MessageLookupByLibrary.simpleMessage("Capsule"),
@@ -48,6 +58,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Course Treatments",
     ),
     "cycling": MessageLookupByLibrary.simpleMessage("Cycling"),
+    "dailyAverageBp": MessageLookupByLibrary.simpleMessage(
+      "Daily Average Blood Pressure",
+    ),
+    "diastolicAmount": m5,
     "gymnastics": MessageLookupByLibrary.simpleMessage("Gymnastics"),
     "hours": MessageLookupByLibrary.simpleMessage("h"),
     "injection": MessageLookupByLibrary.simpleMessage("Injection"),
@@ -94,6 +108,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "stressMood": MessageLookupByLibrary.simpleMessage("Stress & Mood"),
     "swimming": MessageLookupByLibrary.simpleMessage("Swimming"),
     "syrup": MessageLookupByLibrary.simpleMessage("Syrup"),
+    "systolicAmount": m6,
     "tablet": MessageLookupByLibrary.simpleMessage("Tablet"),
     "temperature": MessageLookupByLibrary.simpleMessage("Temperature"),
     "tennis": MessageLookupByLibrary.simpleMessage("Tennis"),
