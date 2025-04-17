@@ -58,7 +58,11 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: Routes.waterPage,
-      builder: (context, state) => WaterPage(),
+      builder: (context, state) {
+        final extra = state.extra as List<WaterRecord>;
+
+        return WaterPage(records: extra);
+      },
     ),
     GoRoute(
       path: Routes.stressMoodPage,

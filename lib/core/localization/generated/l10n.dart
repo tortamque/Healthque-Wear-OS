@@ -540,6 +540,36 @@ class Strings {
     return Intl.message(' mg/dL', name: 'mgPerDl', desc: '', args: []);
   }
 
+  /// `Water Trend`
+  String get waterTrend {
+    return Intl.message('Water Trend', name: 'waterTrend', desc: '', args: []);
+  }
+
+  /// `Daily Total Water`
+  String get dailyTotalWater {
+    return Intl.message(
+      'Daily Total Water',
+      name: 'dailyTotalWater',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Water History`
+  String get waterHistory {
+    return Intl.message(
+      'Water History',
+      name: 'waterHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `L`
+  String get liters {
+    return Intl.message('L', name: 'liters', desc: '', args: []);
+  }
+
   // skipped getter for the '' key
 }
 

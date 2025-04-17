@@ -42,6 +42,10 @@ class _DashboardPageState extends State<DashboardPage> {
         final bloodPressureRecords = syncData.bloodPressureRecords.records;
         final temperatureRecords = syncData.temperatureRecords.records;
         final bloodSugarRecords = syncData.bloodSugarRecords.records;
+        final waterRecords = syncData.waterRecords.records;
+        waterRecords.forEach((record) {
+          print(record);
+        });
 
         return WearOsClipper(
           child: Scaffold(
@@ -90,7 +94,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           title: context.strings.water,
                           subtitle: context.strings.showWater,
                           icon: Icons.water_drop_rounded,
-                          onTap: () => context.push(Routes.waterPage),
+                          onTap: () => context.push(Routes.waterPage, extra: waterRecords),
                         ),
                       if (syncData.stressMoodRecords.records.isNotEmpty)
                         ActionCard(

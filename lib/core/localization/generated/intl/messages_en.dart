@@ -73,6 +73,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "dailyAverageTemp": MessageLookupByLibrary.simpleMessage(
       "Daily Average Temperature",
     ),
+    "dailyTotalWater": MessageLookupByLibrary.simpleMessage(
+      "Daily Total Water",
+    ),
     "degreeCelsius": MessageLookupByLibrary.simpleMessage("°C"),
     "diastolicAmount": m5,
     "gymnastics": MessageLookupByLibrary.simpleMessage("Gymnastics"),
@@ -80,6 +83,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "injection": MessageLookupByLibrary.simpleMessage("Injection"),
     "intensity": MessageLookupByLibrary.simpleMessage("Intensity"),
     "kilometers": MessageLookupByLibrary.simpleMessage("km"),
+    "liters": MessageLookupByLibrary.simpleMessage("L"),
     "medications": MessageLookupByLibrary.simpleMessage("Medications"),
     "mgPerDl": MessageLookupByLibrary.simpleMessage(" mg/dL"),
     "minutesLowercase": MessageLookupByLibrary.simpleMessage("min"),
@@ -138,6 +142,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "units": MessageLookupByLibrary.simpleMessage("units"),
     "walking": MessageLookupByLibrary.simpleMessage("Walking"),
     "water": MessageLookupByLibrary.simpleMessage("Consumed water"),
+    "waterHistory": MessageLookupByLibrary.simpleMessage("Water History"),
+    "waterTrend": MessageLookupByLibrary.simpleMessage("Water Trend"),
     "weightTraining": MessageLookupByLibrary.simpleMessage("Weight Training"),
     "workoutDurationOver": MessageLookupByLibrary.simpleMessage(
       "Workout duration over the last 4 days",
