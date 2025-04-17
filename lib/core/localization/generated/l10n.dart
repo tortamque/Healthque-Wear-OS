@@ -704,15 +704,16 @@ class Strings {
   String get dosageUnit {
     return Intl.message('mg', name: 'dosageUnit', desc: '', args: []);
   }
-
-  // skipped getter for the '' key
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Strings> {
   const AppLocalizationDelegate();
 
   List<Locale> get supportedLocales {
-    return const <Locale>[Locale.fromSubtags(languageCode: 'en')];
+    return const <Locale>[
+      Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'uk'),
+    ];
   }
 
   @override
