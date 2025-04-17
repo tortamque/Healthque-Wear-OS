@@ -52,12 +52,21 @@ class MessageLookup extends MessageLookupByLibrary {
       "Blood Pressure Trend",
     ),
     "bloodSugar": MessageLookupByLibrary.simpleMessage("Blood Sugar"),
+    "bloodSugarHistory": MessageLookupByLibrary.simpleMessage(
+      "Blood Sugar History",
+    ),
+    "bloodSugarTrend": MessageLookupByLibrary.simpleMessage(
+      "Blood Sugar Trend",
+    ),
     "bouldering": MessageLookupByLibrary.simpleMessage("Bouldering"),
     "capsule": MessageLookupByLibrary.simpleMessage("Capsule"),
     "courseTreatments": MessageLookupByLibrary.simpleMessage(
       "Course Treatments",
     ),
     "cycling": MessageLookupByLibrary.simpleMessage("Cycling"),
+    "dailyAverageBloodSugar": MessageLookupByLibrary.simpleMessage(
+      "Daily Average Blood Sugar",
+    ),
     "dailyAverageBp": MessageLookupByLibrary.simpleMessage(
       "Daily Average Blood Pressure",
     ),
@@ -72,6 +81,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "intensity": MessageLookupByLibrary.simpleMessage("Intensity"),
     "kilometers": MessageLookupByLibrary.simpleMessage("km"),
     "medications": MessageLookupByLibrary.simpleMessage("Medications"),
+    "mgPerDl": MessageLookupByLibrary.simpleMessage(" mg/dL"),
     "minutesLowercase": MessageLookupByLibrary.simpleMessage("min"),
     "ml": MessageLookupByLibrary.simpleMessage("ml"),
     "moodRating": MessageLookupByLibrary.simpleMessage("Mood Rating"),

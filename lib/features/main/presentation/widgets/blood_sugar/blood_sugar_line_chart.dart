@@ -5,10 +5,10 @@ import 'package:healthque_wear_os/core/extensions/context.dart';
 import 'package:healthque_wear_os/core/shared/shared.dart';
 import 'package:healthque_wear_os/features/firebase_sync/firebase_sync.dart';
 
-class TemperatureTrendLineChart extends StatelessWidget {
-  final List<TemperatureRecord> records;
+class BloodSugarTrendLineChart extends StatelessWidget {
+  final List<BloodSugarRecord> records;
 
-  const TemperatureTrendLineChart({super.key, required this.records});
+  const BloodSugarTrendLineChart({super.key, required this.records});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class TemperatureTrendLineChart extends StatelessWidget {
       return const NotEnoughDataPlaceholder(padding: EdgeInsets.symmetric(vertical: 8));
     }
 
-    final Map<String, List<TemperatureRecord>> grouped = {};
+    final Map<String, List<BloodSugarRecord>> grouped = {};
     for (final record in records) {
       final key =
           "${record.measurementTime.year}-${record.measurementTime.month.toString().padLeft(2, '0')}-${record.measurementTime.day.toString().padLeft(2, '0')}";
@@ -35,35 +35,24 @@ class TemperatureTrendLineChart extends StatelessWidget {
 
     final List<FlSpot> spots = [];
     double maxY = -double.infinity;
-    double minYValue = double.infinity;
+    double minY = double.infinity;
     for (int i = 0; i < displayDays.length; i++) {
-      final List<TemperatureRecord> dayRecords = grouped[displayDays[i]]!;
-      final double avgTemp = dayRecords.map((r) => r.temperature).reduce((a, b) => a + b) / dayRecords.length;
-      maxY = max(maxY, avgTemp);
-      minYValue = min(minYValue, avgTemp);
-      spots.add(FlSpot(i.toDouble(), avgTemp));
+      final List<BloodSugarRecord> dayRecords = grouped[displayDays[i]]!;
+      final double avgGlucose = dayRecords.map((r) => r.glucose).reduce((a, b) => a + b) / dayRecords.length;
+      maxY = max(maxY, avgGlucose);
+      minY = min(minY, avgGlucose);
+      spots.add(FlSpot(i.toDouble(), avgGlucose));
     }
 
-    final double margin = (maxY - minYValue) * 0.1;
-    final double chartMinY = minYValue - margin;
+    final double margin = (maxY - minY) * 0.1;
+    final double chartMinY = minY - margin;
     final double chartMaxY = maxY + margin;
-    final double rightInterval = (chartMaxY - chartMinY) / 4;
+    final double rightInterval = (chartMaxY - chartMinY) / 3;
 
     return AspectRatio(
-      aspectRatio: 1.5,
+      aspectRatio: 1,
       child: LineChart(
         LineChartData(
-          extraLinesData: ExtraLinesData(
-            horizontalLines: [
-              HorizontalLine(
-                y: 36.6,
-                color: context.theme.colorScheme.onPrimaryFixedVariant,
-                strokeWidth: 2,
-                dashArray: [10, 10],
-                strokeCap: StrokeCap.round,
-              )
-            ],
-          ),
           lineTouchData: LineTouchData(enabled: false),
           gridData: FlGridData(show: false),
           titlesData: FlTitlesData(
@@ -79,10 +68,7 @@ class TemperatureTrendLineChart extends StatelessWidget {
                     return SideTitleWidget(
                       meta: meta,
                       space: 4,
-                      child: Text(
-                        label,
-                        style: const TextStyle(fontSize: 10),
-                      ),
+                      child: Text(label, style: const TextStyle(fontSize: 10)),
                     );
                   }
                   return Container();
@@ -93,28 +79,20 @@ class TemperatureTrendLineChart extends StatelessWidget {
               sideTitles: SideTitles(
                 maxIncluded: false,
                 showTitles: true,
-                minIncluded: false,
                 reservedSize: 40,
                 interval: rightInterval,
                 getTitlesWidget: (value, meta) {
-                  final label = "${value.toStringAsFixed(1)}${context.strings.degreeCelsius}";
+                  final label = "${value.toInt()}${context.strings.mgPerDl}";
                   return SideTitleWidget(
                     meta: meta,
                     space: 8,
-                    child: Text(
-                      label,
-                      style: const TextStyle(fontSize: 10),
-                    ),
+                    child: Text(label, style: const TextStyle(fontSize: 10)),
                   );
                 },
               ),
             ),
-            leftTitles: AxisTitles(
-              sideTitles: SideTitles(showTitles: false),
-            ),
-            topTitles: AxisTitles(
-              sideTitles: SideTitles(showTitles: false),
-            ),
+            leftTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+            topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
           ),
           borderData: FlBorderData(show: false),
           minX: 0,

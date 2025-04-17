@@ -42,7 +42,11 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: Routes.bloodSugarPage,
-      builder: (context, state) => BloodSugarPage(),
+      builder: (context, state) {
+        final extra = state.extra as List<BloodSugarRecord>;
+
+        return BloodSugarPage(records: extra);
+      },
     ),
     GoRoute(
       path: Routes.temperaturePage,

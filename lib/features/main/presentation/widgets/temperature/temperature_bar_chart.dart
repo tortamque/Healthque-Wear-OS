@@ -58,64 +58,61 @@ class TemperatureAveragesBarChart extends StatelessWidget {
 
     return AspectRatio(
       aspectRatio: 1.6,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: BarChart(
-          BarChartData(
-            maxY: globalMax,
-            alignment: BarChartAlignment.spaceAround,
-            barGroups: groupsData,
-            gridData: FlGridData(show: false),
-            borderData: FlBorderData(show: false),
-            titlesData: FlTitlesData(
-              bottomTitles: AxisTitles(
-                sideTitles: SideTitles(
-                  showTitles: true,
-                  reservedSize: 24,
-                  getTitlesWidget: (value, meta) {
-                    if (value.toInt() < displayDays.length) {
-                      final parts = displayDays[value.toInt()].split('-');
-                      final label = "${parts[2]}.${parts[1]}";
-                      return SideTitleWidget(
-                        meta: meta,
-                        space: 4,
-                        child: Text(
-                          label,
-                          style: const TextStyle(fontSize: 10),
-                        ),
-                      );
-                    }
-                    return Container();
-                  },
-                ),
-              ),
-              rightTitles: AxisTitles(
-                sideTitles: SideTitles(
-                  maxIncluded: false,
-                  showTitles: true,
-                  reservedSize: 40,
-                  interval: interval,
-                  getTitlesWidget: (value, meta) {
-                    final label = "${value.toStringAsFixed(1)}${context.strings.degreeCelsius}";
+      child: BarChart(
+        BarChartData(
+          maxY: globalMax,
+          alignment: BarChartAlignment.spaceAround,
+          barGroups: groupsData,
+          gridData: FlGridData(show: false),
+          borderData: FlBorderData(show: false),
+          titlesData: FlTitlesData(
+            bottomTitles: AxisTitles(
+              sideTitles: SideTitles(
+                showTitles: true,
+                reservedSize: 24,
+                getTitlesWidget: (value, meta) {
+                  if (value.toInt() < displayDays.length) {
+                    final parts = displayDays[value.toInt()].split('-');
+                    final label = "${parts[2]}.${parts[1]}";
                     return SideTitleWidget(
                       meta: meta,
-                      space: 8,
+                      space: 4,
                       child: Text(
                         label,
                         style: const TextStyle(fontSize: 10),
                       ),
                     );
-                  },
-                ),
+                  }
+                  return Container();
+                },
               ),
-              leftTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-              topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
             ),
-            barTouchData: BarTouchData(enabled: false),
+            rightTitles: AxisTitles(
+              sideTitles: SideTitles(
+                maxIncluded: false,
+                showTitles: true,
+                reservedSize: 40,
+                interval: interval,
+                getTitlesWidget: (value, meta) {
+                  final label = "${value.toStringAsFixed(1)}${context.strings.degreeCelsius}";
+                  return SideTitleWidget(
+                    meta: meta,
+                    space: 8,
+                    child: Text(
+                      label,
+                      style: const TextStyle(fontSize: 10),
+                    ),
+                  );
+                },
+              ),
+            ),
+            leftTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+            topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
           ),
-          duration: const Duration(milliseconds: 150),
-          curve: Curves.linear,
+          barTouchData: BarTouchData(enabled: false),
         ),
+        duration: const Duration(milliseconds: 150),
+        curve: Curves.linear,
       ),
     );
   }

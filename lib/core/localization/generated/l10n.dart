@@ -505,6 +505,41 @@ class Strings {
     return Intl.message('°C', name: 'degreeCelsius', desc: '', args: []);
   }
 
+  /// `Blood Sugar Trend`
+  String get bloodSugarTrend {
+    return Intl.message(
+      'Blood Sugar Trend',
+      name: 'bloodSugarTrend',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Daily Average Blood Sugar`
+  String get dailyAverageBloodSugar {
+    return Intl.message(
+      'Daily Average Blood Sugar',
+      name: 'dailyAverageBloodSugar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Blood Sugar History`
+  String get bloodSugarHistory {
+    return Intl.message(
+      'Blood Sugar History',
+      name: 'bloodSugarHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` mg/dL`
+  String get mgPerDl {
+    return Intl.message(' mg/dL', name: 'mgPerDl', desc: '', args: []);
+  }
+
   // skipped getter for the '' key
 }
 

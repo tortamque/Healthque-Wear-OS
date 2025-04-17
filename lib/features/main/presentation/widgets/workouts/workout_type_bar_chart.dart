@@ -58,62 +58,59 @@ class WorkoutTypeBarChart extends StatelessWidget {
 
     return AspectRatio(
       aspectRatio: 1.6,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: BarChart(
-          BarChartData(
-            maxY: maxY,
-            alignment: BarChartAlignment.spaceAround,
-            barGroups: groups,
-            gridData: FlGridData(show: false),
-            borderData: FlBorderData(show: false),
-            titlesData: FlTitlesData(
-              bottomTitles: AxisTitles(
-                sideTitles: SideTitles(
-                  showTitles: true,
-                  reservedSize: 24,
-                  getTitlesWidget: (value, meta) {
-                    if (value.toInt() < displayTypes.length) {
-                      final label = displayTypes[value.toInt()];
-                      return SideTitleWidget(
-                        meta: meta,
-                        space: 4,
-                        child: Text(
-                          label,
-                          style: const TextStyle(fontSize: 10),
-                        ),
-                      );
-                    }
-                    return Container();
-                  },
-                ),
-              ),
-              rightTitles: AxisTitles(
-                sideTitles: SideTitles(
-                  maxIncluded: false,
-                  showTitles: true,
-                  reservedSize: 40,
-                  interval: dynamicInterval,
-                  getTitlesWidget: (value, meta) {
+      child: BarChart(
+        BarChartData(
+          maxY: maxY,
+          alignment: BarChartAlignment.spaceAround,
+          barGroups: groups,
+          gridData: FlGridData(show: false),
+          borderData: FlBorderData(show: false),
+          titlesData: FlTitlesData(
+            bottomTitles: AxisTitles(
+              sideTitles: SideTitles(
+                showTitles: true,
+                reservedSize: 24,
+                getTitlesWidget: (value, meta) {
+                  if (value.toInt() < displayTypes.length) {
+                    final label = displayTypes[value.toInt()];
                     return SideTitleWidget(
                       meta: meta,
-                      space: 8,
+                      space: 4,
                       child: Text(
-                        value.toInt().toString(),
+                        label,
                         style: const TextStyle(fontSize: 10),
                       ),
                     );
-                  },
-                ),
+                  }
+                  return Container();
+                },
               ),
-              leftTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-              topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
             ),
-            barTouchData: BarTouchData(enabled: false),
+            rightTitles: AxisTitles(
+              sideTitles: SideTitles(
+                maxIncluded: false,
+                showTitles: true,
+                reservedSize: 40,
+                interval: dynamicInterval,
+                getTitlesWidget: (value, meta) {
+                  return SideTitleWidget(
+                    meta: meta,
+                    space: 8,
+                    child: Text(
+                      value.toInt().toString(),
+                      style: const TextStyle(fontSize: 10),
+                    ),
+                  );
+                },
+              ),
+            ),
+            leftTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+            topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
           ),
-          duration: const Duration(milliseconds: 150),
-          curve: Curves.linear,
+          barTouchData: BarTouchData(enabled: false),
         ),
+        duration: const Duration(milliseconds: 150),
+        curve: Curves.linear,
       ),
     );
   }

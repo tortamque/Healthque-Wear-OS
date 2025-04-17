@@ -5,10 +5,10 @@ import 'package:healthque_wear_os/core/extensions/context.dart';
 import 'package:healthque_wear_os/core/shared/shared.dart';
 import 'package:healthque_wear_os/features/firebase_sync/firebase_sync.dart';
 
-class TemperatureTrendLineChart extends StatelessWidget {
-  final List<TemperatureRecord> records;
+class BloodSugarAveragesBarChart extends StatelessWidget {
+  final List<BloodSugarRecord> records;
 
-  const TemperatureTrendLineChart({super.key, required this.records});
+  const BloodSugarAveragesBarChart({super.key, required this.records});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class TemperatureTrendLineChart extends StatelessWidget {
       return const NotEnoughDataPlaceholder(padding: EdgeInsets.symmetric(vertical: 8));
     }
 
-    final Map<String, List<TemperatureRecord>> grouped = {};
+    final Map<String, List<BloodSugarRecord>> grouped = {};
     for (final record in records) {
       final key =
           "${record.measurementTime.year}-${record.measurementTime.month.toString().padLeft(2, '0')}-${record.measurementTime.day.toString().padLeft(2, '0')}";
@@ -27,51 +27,54 @@ class TemperatureTrendLineChart extends StatelessWidget {
     }
     final List<String> sortedDays = grouped.keys.toList()..sort();
 
-    if (sortedDays.length < 2) {
+    if (sortedDays.isEmpty) {
       return const NotEnoughDataPlaceholder(padding: EdgeInsets.symmetric(vertical: 8));
     }
 
     final List<String> displayDays = sortedDays.length > 4 ? sortedDays.sublist(sortedDays.length - 4) : sortedDays;
 
-    final List<FlSpot> spots = [];
-    double maxY = -double.infinity;
-    double minYValue = double.infinity;
+    final List<BarChartGroupData> barGroups = [];
+    double globalMax = -double.infinity;
+    double globalMin = double.infinity;
     for (int i = 0; i < displayDays.length; i++) {
-      final List<TemperatureRecord> dayRecords = grouped[displayDays[i]]!;
-      final double avgTemp = dayRecords.map((r) => r.temperature).reduce((a, b) => a + b) / dayRecords.length;
-      maxY = max(maxY, avgTemp);
-      minYValue = min(minYValue, avgTemp);
-      spots.add(FlSpot(i.toDouble(), avgTemp));
+      final dayRecords = grouped[displayDays[i]]!;
+      final double avgGlucose = dayRecords.map((r) => r.glucose).reduce((a, b) => a + b) / dayRecords.length;
+      globalMax = max(globalMax, avgGlucose);
+      globalMin = min(globalMin, avgGlucose);
+      barGroups.add(
+        BarChartGroupData(
+          x: i,
+          barRods: [
+            BarChartRodData(
+              toY: avgGlucose,
+              color: context.theme.colorScheme.primary,
+              width: 12,
+              borderRadius: BorderRadius.circular(4),
+            ),
+          ],
+        ),
+      );
     }
-
-    final double margin = (maxY - minYValue) * 0.1;
-    final double chartMinY = minYValue - margin;
-    final double chartMaxY = maxY + margin;
-    final double rightInterval = (chartMaxY - chartMinY) / 4;
+    final double margin = (globalMax - globalMin) * 0.1;
+    final double chartMinY = globalMin - margin;
+    final double chartMaxY = globalMax + margin;
+    final double interval = (chartMaxY - chartMinY) / 3;
 
     return AspectRatio(
-      aspectRatio: 1.5,
-      child: LineChart(
-        LineChartData(
-          extraLinesData: ExtraLinesData(
-            horizontalLines: [
-              HorizontalLine(
-                y: 36.6,
-                color: context.theme.colorScheme.onPrimaryFixedVariant,
-                strokeWidth: 2,
-                dashArray: [10, 10],
-                strokeCap: StrokeCap.round,
-              )
-            ],
-          ),
-          lineTouchData: LineTouchData(enabled: false),
+      aspectRatio: 1,
+      child: BarChart(
+        BarChartData(
+          maxY: chartMaxY,
+          minY: chartMinY,
+          alignment: BarChartAlignment.spaceAround,
+          barGroups: barGroups,
           gridData: FlGridData(show: false),
+          borderData: FlBorderData(show: false),
           titlesData: FlTitlesData(
             bottomTitles: AxisTitles(
               sideTitles: SideTitles(
                 showTitles: true,
                 reservedSize: 24,
-                interval: 1,
                 getTitlesWidget: (value, meta) {
                   if (value.toInt() < displayDays.length) {
                     final parts = displayDays[value.toInt()].split('-');
@@ -79,10 +82,7 @@ class TemperatureTrendLineChart extends StatelessWidget {
                     return SideTitleWidget(
                       meta: meta,
                       space: 4,
-                      child: Text(
-                        label,
-                        style: const TextStyle(fontSize: 10),
-                      ),
+                      child: Text(label, style: const TextStyle(fontSize: 10)),
                     );
                   }
                   return Container();
@@ -93,18 +93,14 @@ class TemperatureTrendLineChart extends StatelessWidget {
               sideTitles: SideTitles(
                 maxIncluded: false,
                 showTitles: true,
-                minIncluded: false,
                 reservedSize: 40,
-                interval: rightInterval,
+                interval: interval,
                 getTitlesWidget: (value, meta) {
-                  final label = "${value.toStringAsFixed(1)}${context.strings.degreeCelsius}";
+                  final label = "${value.toStringAsFixed(1)}${context.strings.mgPerDl}";
                   return SideTitleWidget(
                     meta: meta,
                     space: 8,
-                    child: Text(
-                      label,
-                      style: const TextStyle(fontSize: 10),
-                    ),
+                    child: Text(label, style: const TextStyle(fontSize: 10)),
                   );
                 },
               ),
@@ -116,25 +112,10 @@ class TemperatureTrendLineChart extends StatelessWidget {
               sideTitles: SideTitles(showTitles: false),
             ),
           ),
-          borderData: FlBorderData(show: false),
-          minX: 0,
-          maxX: (displayDays.length - 1).toDouble(),
-          minY: chartMinY,
-          maxY: chartMaxY,
-          lineBarsData: [
-            LineChartBarData(
-              isCurved: true,
-              spots: spots,
-              barWidth: 3,
-              color: context.theme.colorScheme.primary,
-              dotData: FlDotData(show: true),
-              belowBarData: BarAreaData(
-                show: true,
-                color: context.theme.colorScheme.primary.withOpacity(0.3),
-              ),
-            ),
-          ],
+          barTouchData: BarTouchData(enabled: false),
         ),
+        duration: const Duration(milliseconds: 150),
+        curve: Curves.linear,
       ),
     );
   }
