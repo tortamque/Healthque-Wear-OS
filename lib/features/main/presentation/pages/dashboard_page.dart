@@ -39,9 +39,6 @@ class _DashboardPageState extends State<DashboardPage> {
         }
 
         final workouts = syncData.workouts.workouts;
-        workouts.forEach((workout) {
-          print(workout);
-        });
 
         return WearOsClipper(
           child: Scaffold(
