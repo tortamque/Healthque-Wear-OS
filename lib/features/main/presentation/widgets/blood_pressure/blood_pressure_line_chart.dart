@@ -37,7 +37,7 @@ class BloodPressureTrendLineChart extends StatelessWidget {
     final double rightInterval = maxY / 4;
 
     return AspectRatio(
-      aspectRatio: 1,
+      aspectRatio: 1.5,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: LineChart(

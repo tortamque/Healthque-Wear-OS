@@ -40,6 +40,7 @@ class _DashboardPageState extends State<DashboardPage> {
 
         final workouts = syncData.workouts.workouts;
         final bloodPressureRecords = syncData.bloodPressureRecords.records;
+        final temperatureRecords = syncData.temperatureRecords.records;
 
         return WearOsClipper(
           child: Scaffold(
@@ -74,7 +75,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           title: context.strings.temperature,
                           subtitle: context.strings.showTemperature,
                           icon: Icons.thermostat,
-                          onTap: () => context.push(Routes.temperaturePage),
+                          onTap: () => context.push(Routes.temperaturePage, extra: temperatureRecords),
                         ),
                       if (syncData.bloodSugarRecords.records.isNotEmpty)
                         ActionCard(

@@ -470,6 +470,41 @@ class Strings {
     );
   }
 
+  /// `Temperature Trend`
+  String get temperatureTrend {
+    return Intl.message(
+      'Temperature Trend',
+      name: 'temperatureTrend',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Daily Average Temperature`
+  String get dailyAverageTemp {
+    return Intl.message(
+      'Daily Average Temperature',
+      name: 'dailyAverageTemp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Temperature History`
+  String get temperatureHistory {
+    return Intl.message(
+      'Temperature History',
+      name: 'temperatureHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `°C`
+  String get degreeCelsius {
+    return Intl.message('°C', name: 'degreeCelsius', desc: '', args: []);
+  }
+
   // skipped getter for the '' key
 }
 

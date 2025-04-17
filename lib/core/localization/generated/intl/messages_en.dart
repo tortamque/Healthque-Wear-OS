@@ -61,6 +61,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "dailyAverageBp": MessageLookupByLibrary.simpleMessage(
       "Daily Average Blood Pressure",
     ),
+    "dailyAverageTemp": MessageLookupByLibrary.simpleMessage(
+      "Daily Average Temperature",
+    ),
+    "degreeCelsius": MessageLookupByLibrary.simpleMessage("°C"),
     "diastolicAmount": m5,
     "gymnastics": MessageLookupByLibrary.simpleMessage("Gymnastics"),
     "hours": MessageLookupByLibrary.simpleMessage("h"),
@@ -111,6 +115,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "systolicAmount": m6,
     "tablet": MessageLookupByLibrary.simpleMessage("Tablet"),
     "temperature": MessageLookupByLibrary.simpleMessage("Temperature"),
+    "temperatureHistory": MessageLookupByLibrary.simpleMessage(
+      "Temperature History",
+    ),
+    "temperatureTrend": MessageLookupByLibrary.simpleMessage(
+      "Temperature Trend",
+    ),
     "tennis": MessageLookupByLibrary.simpleMessage("Tennis"),
     "theresNotEnoughDataToBuildTheChart": MessageLookupByLibrary.simpleMessage(
       "There\'s not enough data to build the chart",

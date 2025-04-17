@@ -46,7 +46,11 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: Routes.temperaturePage,
-      builder: (context, state) => TemperaturePage(),
+      builder: (context, state) {
+        final extra = state.extra as List<TemperatureRecord>;
+
+        return TemperaturePage(records: extra);
+      },
     ),
     GoRoute(
       path: Routes.waterPage,
