@@ -26,6 +26,9 @@ void main() async {
 class HealthqueWearOSApp extends StatelessWidget {
   const HealthqueWearOSApp({super.key});
 
+  int get defaultColorSeed => 4285132974;
+  String get defaultLocale => 'en';
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -37,18 +40,24 @@ class HealthqueWearOSApp extends StatelessWidget {
           lazy: false,
         ),
       ],
-      child: MaterialApp.router(
-        //TODO: Change from backend
-        theme: themeData(color: Colors.greenAccent),
-        routerConfig: router,
-        localizationsDelegates: [
-          Strings.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: Strings.delegate.supportedLocales,
-        locale: Locale('uk'),
+      child: BlocBuilder<FirebaseSyncCubit, FirebaseSyncState>(
+        builder: (context, state) {
+          final locale = state.syncData?.locale ?? defaultLocale;
+          final color = Color(state.syncData?.themePreference.seedColorValue ?? defaultColorSeed);
+
+          return MaterialApp.router(
+            theme: themeData(color: color),
+            routerConfig: router,
+            localizationsDelegates: [
+              Strings.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: Strings.delegate.supportedLocales,
+            locale: Locale(locale),
+          );
+        },
       ),
     );
   }
