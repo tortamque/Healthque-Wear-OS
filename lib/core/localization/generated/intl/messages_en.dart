@@ -20,32 +20,43 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(amount) => "${amount}h";
+
+  static String m1(hours, remainingMinutes) => "${hours}h ${remainingMinutes}m";
+
+  static String m2(minutes) => "${minutes}m";
+
+  static String m3(percentage) => "${percentage}%";
+
+  static String m4(count) => "${count} workouts";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "amountHours": m0,
+    "amountHoursMinutes": m1,
+    "amountMinutes": m2,
+    "amountOfEach": MessageLookupByLibrary.simpleMessage(
+      "Amount of each workout type",
+    ),
+    "amountPercentage": m3,
+    "amountWorkouts": m4,
     "bloodPressure": MessageLookupByLibrary.simpleMessage("Blood Pressure"),
-    "bloodPressureTap": MessageLookupByLibrary.simpleMessage(
-      "Blood pressure pressed",
-    ),
     "bloodSugar": MessageLookupByLibrary.simpleMessage("Blood Sugar"),
-    "bloodSugarTap": MessageLookupByLibrary.simpleMessage(
-      "Blood sugar pressed",
-    ),
     "bouldering": MessageLookupByLibrary.simpleMessage("Bouldering"),
     "capsule": MessageLookupByLibrary.simpleMessage("Capsule"),
     "courseTreatments": MessageLookupByLibrary.simpleMessage(
       "Course Treatments",
     ),
-    "courseTreatmentsTap": MessageLookupByLibrary.simpleMessage(
-      "Course treatments pressed",
-    ),
     "cycling": MessageLookupByLibrary.simpleMessage("Cycling"),
     "gymnastics": MessageLookupByLibrary.simpleMessage("Gymnastics"),
+    "hours": MessageLookupByLibrary.simpleMessage("h"),
     "injection": MessageLookupByLibrary.simpleMessage("Injection"),
+    "intensity": MessageLookupByLibrary.simpleMessage("Intensity"),
+    "kilometers": MessageLookupByLibrary.simpleMessage("km"),
     "medications": MessageLookupByLibrary.simpleMessage("Medications"),
-    "medicationsTap": MessageLookupByLibrary.simpleMessage(
-      "Medications pressed",
-    ),
+    "minutesLowercase": MessageLookupByLibrary.simpleMessage("min"),
     "ml": MessageLookupByLibrary.simpleMessage("ml"),
+    "moodRating": MessageLookupByLibrary.simpleMessage("Mood Rating"),
     "noDataInCloud": MessageLookupByLibrary.simpleMessage(
       "No data found in cloud. Try adding data using mobile app.",
     ),
@@ -71,7 +82,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Show your temperature records",
     ),
     "showWater": MessageLookupByLibrary.simpleMessage(
-      "Show your water records",
+      "Show your consumed water records",
     ),
     "showWorkouts": MessageLookupByLibrary.simpleMessage("Show your workouts"),
     "signInWithGoogle": MessageLookupByLibrary.simpleMessage(
@@ -81,23 +92,22 @@ class MessageLookup extends MessageLookupByLibrary {
       "Sign In with your Google account",
     ),
     "stressMood": MessageLookupByLibrary.simpleMessage("Stress & Mood"),
-    "stressMoodTap": MessageLookupByLibrary.simpleMessage(
-      "Stress & Mood pressed",
-    ),
     "swimming": MessageLookupByLibrary.simpleMessage("Swimming"),
     "syrup": MessageLookupByLibrary.simpleMessage("Syrup"),
     "tablet": MessageLookupByLibrary.simpleMessage("Tablet"),
     "temperature": MessageLookupByLibrary.simpleMessage("Temperature"),
-    "temperatureTap": MessageLookupByLibrary.simpleMessage(
-      "Temperature pressed",
-    ),
     "tennis": MessageLookupByLibrary.simpleMessage("Tennis"),
+    "theresNotEnoughDataToBuildTheChart": MessageLookupByLibrary.simpleMessage(
+      "There\'s not enough data to build the chart",
+    ),
     "units": MessageLookupByLibrary.simpleMessage("units"),
     "walking": MessageLookupByLibrary.simpleMessage("Walking"),
-    "water": MessageLookupByLibrary.simpleMessage("Water"),
-    "waterTap": MessageLookupByLibrary.simpleMessage("Water pressed"),
+    "water": MessageLookupByLibrary.simpleMessage("Consumed water"),
     "weightTraining": MessageLookupByLibrary.simpleMessage("Weight Training"),
+    "workoutDurationOver": MessageLookupByLibrary.simpleMessage(
+      "Workout duration over the last 4 days",
+    ),
+    "workoutHistory": MessageLookupByLibrary.simpleMessage("Workout history"),
     "workouts": MessageLookupByLibrary.simpleMessage("Workouts"),
-    "workoutsTap": MessageLookupByLibrary.simpleMessage("Workouts pressed"),
   };
 }

@@ -36,13 +36,13 @@ class _UnifiedBodyState extends State<UnifiedBody> {
                 controller: controller,
                 clipBehavior: Clip.none,
                 children: [
-                  const Gap(32),
+                  const Gap(54),
                   widget.child,
                   if (widget.showBackButton) ...[
                     const Gap(16),
                     CustomBackButton(),
                   ],
-                  const Gap(32),
+                  const Gap(54),
                 ],
               ),
             ),

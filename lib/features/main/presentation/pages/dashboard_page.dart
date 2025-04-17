@@ -38,6 +38,11 @@ class _DashboardPageState extends State<DashboardPage> {
           );
         }
 
+        final workouts = syncData.workouts.workouts;
+        workouts.forEach((workout) {
+          print(workout);
+        });
+
         return WearOsClipper(
           child: Scaffold(
             body: Padding(
@@ -57,7 +62,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           title: context.strings.workouts,
                           subtitle: context.strings.showWorkouts,
                           icon: Icons.fitness_center_rounded,
-                          onTap: () => context.push(Routes.workoutsPage),
+                          onTap: () => context.push(Routes.workoutsPage, extra: workouts),
                         ),
                       if (syncData.bloodPressureRecords.records.isNotEmpty)
                         ActionCard(

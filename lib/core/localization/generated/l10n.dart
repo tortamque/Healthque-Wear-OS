@@ -185,16 +185,6 @@ class Strings {
     );
   }
 
-  /// `Workouts pressed`
-  String get workoutsTap {
-    return Intl.message(
-      'Workouts pressed',
-      name: 'workoutsTap',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Blood Pressure`
   String get bloodPressure {
     return Intl.message(
@@ -215,16 +205,6 @@ class Strings {
     );
   }
 
-  /// `Blood pressure pressed`
-  String get bloodPressureTap {
-    return Intl.message(
-      'Blood pressure pressed',
-      name: 'bloodPressureTap',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Temperature`
   String get temperature {
     return Intl.message('Temperature', name: 'temperature', desc: '', args: []);
@@ -235,16 +215,6 @@ class Strings {
     return Intl.message(
       'Show your temperature records',
       name: 'showTemperature',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Temperature pressed`
-  String get temperatureTap {
-    return Intl.message(
-      'Temperature pressed',
-      name: 'temperatureTap',
       desc: '',
       args: [],
     );
@@ -265,34 +235,19 @@ class Strings {
     );
   }
 
-  /// `Blood sugar pressed`
-  String get bloodSugarTap {
-    return Intl.message(
-      'Blood sugar pressed',
-      name: 'bloodSugarTap',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Water`
+  /// `Consumed water`
   String get water {
-    return Intl.message('Water', name: 'water', desc: '', args: []);
+    return Intl.message('Consumed water', name: 'water', desc: '', args: []);
   }
 
-  /// `Show your water records`
+  /// `Show your consumed water records`
   String get showWater {
     return Intl.message(
-      'Show your water records',
+      'Show your consumed water records',
       name: 'showWater',
       desc: '',
       args: [],
     );
-  }
-
-  /// `Water pressed`
-  String get waterTap {
-    return Intl.message('Water pressed', name: 'waterTap', desc: '', args: []);
   }
 
   /// `Stress & Mood`
@@ -310,16 +265,6 @@ class Strings {
     return Intl.message(
       'Show your stress & mood journal',
       name: 'showStressMood',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Stress & Mood pressed`
-  String get stressMoodTap {
-    return Intl.message(
-      'Stress & Mood pressed',
-      name: 'stressMoodTap',
       desc: '',
       args: [],
     );
@@ -345,16 +290,6 @@ class Strings {
     );
   }
 
-  /// `Course treatments pressed`
-  String get courseTreatmentsTap {
-    return Intl.message(
-      'Course treatments pressed',
-      name: 'courseTreatmentsTap',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Medications`
   String get medications {
     return Intl.message('Medications', name: 'medications', desc: '', args: []);
@@ -370,15 +305,122 @@ class Strings {
     );
   }
 
-  /// `Medications pressed`
-  String get medicationsTap {
+  /// `There's not enough data to build the chart`
+  String get theresNotEnoughDataToBuildTheChart {
     return Intl.message(
-      'Medications pressed',
-      name: 'medicationsTap',
+      'There\'s not enough data to build the chart',
+      name: 'theresNotEnoughDataToBuildTheChart',
       desc: '',
       args: [],
     );
   }
+
+  /// `{percentage}%`
+  String amountPercentage(Object percentage) {
+    return Intl.message(
+      '$percentage%',
+      name: 'amountPercentage',
+      desc: '',
+      args: [percentage],
+    );
+  }
+
+  /// `{count} workouts`
+  String amountWorkouts(Object count) {
+    return Intl.message(
+      '$count workouts',
+      name: 'amountWorkouts',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `min`
+  String get minutesLowercase {
+    return Intl.message('min', name: 'minutesLowercase', desc: '', args: []);
+  }
+
+  /// `Intensity`
+  String get intensity {
+    return Intl.message('Intensity', name: 'intensity', desc: '', args: []);
+  }
+
+  /// `km`
+  String get kilometers {
+    return Intl.message('km', name: 'kilometers', desc: '', args: []);
+  }
+
+  /// `Mood Rating`
+  String get moodRating {
+    return Intl.message('Mood Rating', name: 'moodRating', desc: '', args: []);
+  }
+
+  /// `h`
+  String get hours {
+    return Intl.message('h', name: 'hours', desc: '', args: []);
+  }
+
+  /// `Amount of each workout type`
+  String get amountOfEach {
+    return Intl.message(
+      'Amount of each workout type',
+      name: 'amountOfEach',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Workout duration over the last 4 days`
+  String get workoutDurationOver {
+    return Intl.message(
+      'Workout duration over the last 4 days',
+      name: 'workoutDurationOver',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Workout history`
+  String get workoutHistory {
+    return Intl.message(
+      'Workout history',
+      name: 'workoutHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{amount}h`
+  String amountHours(Object amount) {
+    return Intl.message(
+      '${amount}h',
+      name: 'amountHours',
+      desc: '',
+      args: [amount],
+    );
+  }
+
+  /// `{hours}h {remainingMinutes}m`
+  String amountHoursMinutes(Object hours, Object remainingMinutes) {
+    return Intl.message(
+      '${hours}h ${remainingMinutes}m',
+      name: 'amountHoursMinutes',
+      desc: '',
+      args: [hours, remainingMinutes],
+    );
+  }
+
+  /// `{minutes}m`
+  String amountMinutes(Object minutes) {
+    return Intl.message(
+      '${minutes}m',
+      name: 'amountMinutes',
+      desc: '',
+      args: [minutes],
+    );
+  }
+
+  // skipped getter for the '' key
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Strings> {
