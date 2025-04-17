@@ -74,7 +74,11 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: Routes.medicationsPage,
-      builder: (context, state) => MedicationsPage(),
+      builder: (context, state) {
+        final extra = state.extra as List<Medication>;
+
+        return MedicationsPage(records: extra);
+      },
     ),
     GoRoute(
       path: Routes.courseTreatmentsPage,

@@ -45,6 +45,7 @@ class _DashboardPageState extends State<DashboardPage> {
         final waterRecords = syncData.waterRecords.records;
         final stressMoodRecords = syncData.stressMoodRecords.records;
         final courseTreatments = syncData.courseTreatments.courses;
+        final medications = syncData.medications.medications;
 
         return WearOsClipper(
           child: Scaffold(
@@ -114,7 +115,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           title: context.strings.medications,
                           subtitle: context.strings.showMedications,
                           icon: Icons.healing_rounded,
-                          onTap: () => context.push(Routes.medicationsPage),
+                          onTap: () => context.push(Routes.medicationsPage, extra: medications),
                         ),
                       const Gap(32),
                     ],

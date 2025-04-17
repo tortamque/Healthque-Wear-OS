@@ -62,6 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "bouldering": MessageLookupByLibrary.simpleMessage("Bouldering"),
     "capsule": MessageLookupByLibrary.simpleMessage("Capsule"),
+    "course": MessageLookupByLibrary.simpleMessage("Course"),
     "courseDurationTrend": MessageLookupByLibrary.simpleMessage(
       "Course Duration Trend",
     ),
@@ -86,6 +87,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "days": MessageLookupByLibrary.simpleMessage("d"),
     "degreeCelsius": MessageLookupByLibrary.simpleMessage("°C"),
     "diastolicAmount": m6,
+    "dosage": MessageLookupByLibrary.simpleMessage("Dosage"),
+    "dosageTrend": MessageLookupByLibrary.simpleMessage(
+      "Dosage Trend Over Time",
+    ),
+    "dosageUnit": MessageLookupByLibrary.simpleMessage("mg"),
     "gymnastics": MessageLookupByLibrary.simpleMessage("Gymnastics"),
     "hours": MessageLookupByLibrary.simpleMessage("h"),
     "injection": MessageLookupByLibrary.simpleMessage("Injection"),
@@ -95,7 +101,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "medicationDistribution": MessageLookupByLibrary.simpleMessage(
       "Medication Distribution",
     ),
+    "medicationHistory": MessageLookupByLibrary.simpleMessage(
+      "Medication History",
+    ),
     "medicationTime": MessageLookupByLibrary.simpleMessage("Medication Time"),
+    "medicationTypeDistribution": MessageLookupByLibrary.simpleMessage(
+      "Medication Type Distribution",
+    ),
     "medications": MessageLookupByLibrary.simpleMessage("Medications"),
     "mgPerDl": MessageLookupByLibrary.simpleMessage(" mg/dL"),
     "minutesLowercase": MessageLookupByLibrary.simpleMessage("min"),

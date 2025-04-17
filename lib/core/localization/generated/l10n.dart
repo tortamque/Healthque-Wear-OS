@@ -660,6 +660,51 @@ class Strings {
     return Intl.message('d', name: 'days', desc: '', args: []);
   }
 
+  /// `Medication Type Distribution`
+  String get medicationTypeDistribution {
+    return Intl.message(
+      'Medication Type Distribution',
+      name: 'medicationTypeDistribution',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dosage Trend Over Time`
+  String get dosageTrend {
+    return Intl.message(
+      'Dosage Trend Over Time',
+      name: 'dosageTrend',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Medication History`
+  String get medicationHistory {
+    return Intl.message(
+      'Medication History',
+      name: 'medicationHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dosage`
+  String get dosage {
+    return Intl.message('Dosage', name: 'dosage', desc: '', args: []);
+  }
+
+  /// `Course`
+  String get course {
+    return Intl.message('Course', name: 'course', desc: '', args: []);
+  }
+
+  /// `mg`
+  String get dosageUnit {
+    return Intl.message('mg', name: 'dosageUnit', desc: '', args: []);
+  }
+
   // skipped getter for the '' key
 }
 
