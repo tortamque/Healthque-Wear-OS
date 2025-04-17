@@ -88,7 +88,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "mgPerDl": MessageLookupByLibrary.simpleMessage(" mg/dL"),
     "minutesLowercase": MessageLookupByLibrary.simpleMessage("min"),
     "ml": MessageLookupByLibrary.simpleMessage("ml"),
+    "mood": MessageLookupByLibrary.simpleMessage("Mood"),
     "moodRating": MessageLookupByLibrary.simpleMessage("Mood Rating"),
+    "moodTrend": MessageLookupByLibrary.simpleMessage("Mood Trend"),
     "noDataInCloud": MessageLookupByLibrary.simpleMessage(
       "No data found in cloud. Try adding data using mobile app.",
     ),
@@ -123,7 +125,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "signInWithGoogleAccount": MessageLookupByLibrary.simpleMessage(
       "Sign In with your Google account",
     ),
+    "stress": MessageLookupByLibrary.simpleMessage("Stress"),
     "stressMood": MessageLookupByLibrary.simpleMessage("Stress & Mood"),
+    "stressMoodHistory": MessageLookupByLibrary.simpleMessage(
+      "Stress & Mood History",
+    ),
+    "stressTrend": MessageLookupByLibrary.simpleMessage("Stress Trend"),
     "swimming": MessageLookupByLibrary.simpleMessage("Swimming"),
     "syrup": MessageLookupByLibrary.simpleMessage("Syrup"),
     "systolicAmount": m6,

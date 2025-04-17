@@ -66,7 +66,11 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: Routes.stressMoodPage,
-      builder: (context, state) => StressMoodPage(),
+      builder: (context, state) {
+        final extra = state.extra as List<StressMoodRecord>;
+
+        return StressMoodPage(records: extra);
+      },
     ),
     GoRoute(
       path: Routes.medicationsPage,

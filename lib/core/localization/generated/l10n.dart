@@ -570,6 +570,41 @@ class Strings {
     return Intl.message('L', name: 'liters', desc: '', args: []);
   }
 
+  /// `Stress Trend`
+  String get stressTrend {
+    return Intl.message(
+      'Stress Trend',
+      name: 'stressTrend',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mood Trend`
+  String get moodTrend {
+    return Intl.message('Mood Trend', name: 'moodTrend', desc: '', args: []);
+  }
+
+  /// `Stress & Mood History`
+  String get stressMoodHistory {
+    return Intl.message(
+      'Stress & Mood History',
+      name: 'stressMoodHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stress`
+  String get stress {
+    return Intl.message('Stress', name: 'stress', desc: '', args: []);
+  }
+
+  /// `Mood`
+  String get mood {
+    return Intl.message('Mood', name: 'mood', desc: '', args: []);
+  }
+
   // skipped getter for the '' key
 }
 

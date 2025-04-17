@@ -43,10 +43,7 @@ class _DashboardPageState extends State<DashboardPage> {
         final temperatureRecords = syncData.temperatureRecords.records;
         final bloodSugarRecords = syncData.bloodSugarRecords.records;
         final waterRecords = syncData.waterRecords.records;
-        waterRecords.forEach((record) {
-          print(record);
-        });
-
+        final stressMoodRecords = syncData.stressMoodRecords.records;
         return WearOsClipper(
           child: Scaffold(
             body: Padding(
@@ -101,7 +98,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           title: context.strings.stressMood,
                           subtitle: context.strings.showStressMood,
                           icon: Icons.sentiment_satisfied_alt_rounded,
-                          onTap: () => context.push(Routes.stressMoodPage),
+                          onTap: () => context.push(Routes.stressMoodPage, extra: stressMoodRecords),
                         ),
                       if (syncData.courseTreatments.courses.isNotEmpty)
                         ActionCard(
