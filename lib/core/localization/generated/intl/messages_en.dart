@@ -115,6 +115,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "mood": MessageLookupByLibrary.simpleMessage("Mood"),
     "moodRating": MessageLookupByLibrary.simpleMessage("Mood Rating"),
     "moodTrend": MessageLookupByLibrary.simpleMessage("Mood Trend"),
+    "noData": MessageLookupByLibrary.simpleMessage(
+      "Currently, no data is stored in the cloud or cached locally. Please add data using your Healthque mobile app and ensure your internet connection is enabled to cache the information.",
+    ),
     "noDataInCloud": MessageLookupByLibrary.simpleMessage(
       "No data found in cloud. Try adding data using mobile app.",
     ),

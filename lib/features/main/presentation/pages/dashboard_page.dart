@@ -47,6 +47,15 @@ class _DashboardPageState extends State<DashboardPage> {
         final courseTreatments = syncData.courseTreatments.courses;
         final medications = syncData.medications.medications;
 
+        final isEverythingEmpty = workouts.isEmpty &&
+            bloodPressureRecords.isEmpty &&
+            temperatureRecords.isEmpty &&
+            bloodSugarRecords.isEmpty &&
+            waterRecords.isEmpty &&
+            stressMoodRecords.isEmpty &&
+            courseTreatments.isEmpty &&
+            medications.isEmpty;
+
         return WearOsClipper(
           child: Scaffold(
             body: Padding(
@@ -55,71 +64,86 @@ class _DashboardPageState extends State<DashboardPage> {
                 controller: controller,
                 autoHide: true,
                 child: Center(
-                  child: ListView(
-                    shrinkWrap: true,
-                    controller: controller,
-                    clipBehavior: Clip.none,
-                    children: [
-                      const Gap(32),
-                      if (syncData.workouts.workouts.isNotEmpty)
-                        ActionCard(
-                          title: context.strings.workouts,
-                          subtitle: context.strings.showWorkouts,
-                          icon: Icons.fitness_center_rounded,
-                          onTap: () => context.push(Routes.workoutsPage, extra: workouts),
+                  child: isEverythingEmpty
+                      ? ListView(
+                          shrinkWrap: true,
+                          controller: controller,
+                          clipBehavior: Clip.none,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 70),
+                              child: Text(
+                                context.strings.noData,
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ],
+                        )
+                      : ListView(
+                          shrinkWrap: true,
+                          controller: controller,
+                          clipBehavior: Clip.none,
+                          children: [
+                            const Gap(32),
+                            if (syncData.workouts.workouts.isNotEmpty)
+                              ActionCard(
+                                title: context.strings.workouts,
+                                subtitle: context.strings.showWorkouts,
+                                icon: Icons.fitness_center_rounded,
+                                onTap: () => context.push(Routes.workoutsPage, extra: workouts),
+                              ),
+                            if (syncData.bloodPressureRecords.records.isNotEmpty)
+                              ActionCard(
+                                title: context.strings.bloodPressure,
+                                subtitle: context.strings.showBloodPressure,
+                                icon: Icons.monitor_heart_rounded,
+                                onTap: () => context.push(Routes.bloodPressurePage, extra: bloodPressureRecords),
+                              ),
+                            if (syncData.temperatureRecords.records.isNotEmpty)
+                              ActionCard(
+                                title: context.strings.temperature,
+                                subtitle: context.strings.showTemperature,
+                                icon: Icons.thermostat,
+                                onTap: () => context.push(Routes.temperaturePage, extra: temperatureRecords),
+                              ),
+                            if (syncData.bloodSugarRecords.records.isNotEmpty)
+                              ActionCard(
+                                title: context.strings.bloodSugar,
+                                subtitle: context.strings.showBloodSugar,
+                                icon: Icons.show_chart_rounded,
+                                onTap: () => context.push(Routes.bloodSugarPage, extra: bloodSugarRecords),
+                              ),
+                            if (syncData.waterRecords.records.isNotEmpty)
+                              ActionCard(
+                                title: context.strings.water,
+                                subtitle: context.strings.showWater,
+                                icon: Icons.water_drop_rounded,
+                                onTap: () => context.push(Routes.waterPage, extra: waterRecords),
+                              ),
+                            if (syncData.stressMoodRecords.records.isNotEmpty)
+                              ActionCard(
+                                title: context.strings.stressMood,
+                                subtitle: context.strings.showStressMood,
+                                icon: Icons.sentiment_satisfied_alt_rounded,
+                                onTap: () => context.push(Routes.stressMoodPage, extra: stressMoodRecords),
+                              ),
+                            if (syncData.courseTreatments.courses.isNotEmpty)
+                              ActionCard(
+                                title: context.strings.courseTreatments,
+                                subtitle: context.strings.showCourseTreatments,
+                                icon: Icons.event_available_rounded,
+                                onTap: () => context.push(Routes.courseTreatmentsPage, extra: courseTreatments),
+                              ),
+                            if (syncData.medications.medications.isNotEmpty)
+                              ActionCard(
+                                title: context.strings.medications,
+                                subtitle: context.strings.showMedications,
+                                icon: Icons.healing_rounded,
+                                onTap: () => context.push(Routes.medicationsPage, extra: medications),
+                              ),
+                            const Gap(32),
+                          ],
                         ),
-                      if (syncData.bloodPressureRecords.records.isNotEmpty)
-                        ActionCard(
-                          title: context.strings.bloodPressure,
-                          subtitle: context.strings.showBloodPressure,
-                          icon: Icons.monitor_heart_rounded,
-                          onTap: () => context.push(Routes.bloodPressurePage, extra: bloodPressureRecords),
-                        ),
-                      if (syncData.temperatureRecords.records.isNotEmpty)
-                        ActionCard(
-                          title: context.strings.temperature,
-                          subtitle: context.strings.showTemperature,
-                          icon: Icons.thermostat,
-                          onTap: () => context.push(Routes.temperaturePage, extra: temperatureRecords),
-                        ),
-                      if (syncData.bloodSugarRecords.records.isNotEmpty)
-                        ActionCard(
-                          title: context.strings.bloodSugar,
-                          subtitle: context.strings.showBloodSugar,
-                          icon: Icons.show_chart_rounded,
-                          onTap: () => context.push(Routes.bloodSugarPage, extra: bloodSugarRecords),
-                        ),
-                      if (syncData.waterRecords.records.isNotEmpty)
-                        ActionCard(
-                          title: context.strings.water,
-                          subtitle: context.strings.showWater,
-                          icon: Icons.water_drop_rounded,
-                          onTap: () => context.push(Routes.waterPage, extra: waterRecords),
-                        ),
-                      if (syncData.stressMoodRecords.records.isNotEmpty)
-                        ActionCard(
-                          title: context.strings.stressMood,
-                          subtitle: context.strings.showStressMood,
-                          icon: Icons.sentiment_satisfied_alt_rounded,
-                          onTap: () => context.push(Routes.stressMoodPage, extra: stressMoodRecords),
-                        ),
-                      if (syncData.courseTreatments.courses.isNotEmpty)
-                        ActionCard(
-                          title: context.strings.courseTreatments,
-                          subtitle: context.strings.showCourseTreatments,
-                          icon: Icons.event_available_rounded,
-                          onTap: () => context.push(Routes.courseTreatmentsPage, extra: courseTreatments),
-                        ),
-                      if (syncData.medications.medications.isNotEmpty)
-                        ActionCard(
-                          title: context.strings.medications,
-                          subtitle: context.strings.showMedications,
-                          icon: Icons.healing_rounded,
-                          onTap: () => context.push(Routes.medicationsPage, extra: medications),
-                        ),
-                      const Gap(32),
-                    ],
-                  ),
                 ),
               ),
             ),

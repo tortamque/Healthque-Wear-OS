@@ -1,12 +1,16 @@
 import 'package:healthque_wear_os/features/firebase_sync/firebase_sync.dart';
+import 'package:healthque_wear_os/utils/utils.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-class UserHiveManager {
-  late Box<User> userBox;
+class UserHiveManager implements HiveManager<User> {
+  @override
+  late Box<User> box;
 
+  @override
   String get hiveKey => 'user';
 
+  @override
   Future<void> init() async {
-    userBox = await Hive.openBox<User>(hiveKey);
+    box = await Hive.openBox<User>(hiveKey);
   }
 }

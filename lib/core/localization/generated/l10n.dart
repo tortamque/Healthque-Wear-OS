@@ -704,6 +704,16 @@ class Strings {
   String get dosageUnit {
     return Intl.message('mg', name: 'dosageUnit', desc: '', args: []);
   }
+
+  /// `Currently, no data is stored in the cloud or cached locally. Please add data using your Healthque mobile app and ensure your internet connection is enabled to cache the information.`
+  String get noData {
+    return Intl.message(
+      'Currently, no data is stored in the cloud or cached locally. Please add data using your Healthque mobile app and ensure your internet connection is enabled to cache the information.',
+      name: 'noData',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Strings> {

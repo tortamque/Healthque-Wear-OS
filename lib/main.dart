@@ -8,10 +8,9 @@ import 'package:healthque_wear_os/config/routes/router.dart';
 import 'package:healthque_wear_os/core/injection_container.dart';
 import 'package:healthque_wear_os/firebase_options.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
-import 'core/localization/generated/l10n.dart';
-import 'features/authorization/authorization.dart';
-import 'utils/utils.dart';
+import 'package:healthque_wear_os/core/localization/generated/l10n.dart';
+import 'package:healthque_wear_os/features/authorization/authorization.dart';
+import 'package:healthque_wear_os/utils/utils.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,8 +34,21 @@ class HealthqueWearOSApp extends StatelessWidget {
       providers: [
         BlocProvider<AuthCubit>(create: (_) => AuthCubit()),
         BlocProvider<FirebaseSyncCubit>(
-          create: (_) =>
-              FirebaseSyncCubit(sl(), sl(), sl(), sl(), sl(), sl(), sl(), sl(), sl(), sl(), sl(), sl(), sl())..init(),
+          create: (_) => FirebaseSyncCubit(
+            sl(),
+            sl<UserHiveManager>(),
+            sl<WorkoutsHiveManager>(),
+            sl<BloodPressureTrackingHiveManager>(),
+            sl<TemperatureTrackingHiveManager>(),
+            sl<BloodSugarTrackingHiveManager>(),
+            sl<WaterTrackingHiveManager>(),
+            sl<StressMoodTrackingHiveManager>(),
+            sl<NotificationsHiveManager>(),
+            sl<CourseTreatmentHiveManager>(),
+            sl<MedicationTrackingHiveManager>(),
+            sl<ThemePreferenceHiveManager>(),
+            sl<LocaleHiveManager>(),
+          )..init(),
           lazy: false,
         ),
       ],

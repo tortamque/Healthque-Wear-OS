@@ -1,4 +1,4 @@
-
+export 'hive_manager.dart';
 export 'blood_pressure_tracking_hive_manager.dart';
 export 'blood_sugar_hive_manager.dart';
 export 'course_treatment_hive_manager.dart';
