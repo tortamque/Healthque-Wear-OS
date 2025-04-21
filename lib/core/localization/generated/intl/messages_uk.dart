@@ -104,6 +104,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "mood": MessageLookupByLibrary.simpleMessage("Настрій"),
     "moodRating": MessageLookupByLibrary.simpleMessage("Настрій"),
     "moodTrend": MessageLookupByLibrary.simpleMessage("Динаміка настрою"),
+    "noData": MessageLookupByLibrary.simpleMessage(
+      "Наразі жодних даних не збережено в хмарі або локально закешовано. Будь ласка, додайте дані за допомогою мобільного додатку Healthque та переконайтеся, що інтернет-з\'єднання увімкнене для кешування інформації.",
+    ),
     "noDataInCloud": MessageLookupByLibrary.simpleMessage(
       "У хмарі немає даних. Додайте їх через мобільний додаток.",
     ),
