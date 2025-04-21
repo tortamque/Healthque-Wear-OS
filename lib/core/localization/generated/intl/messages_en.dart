@@ -20,32 +20,101 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(amount) => "${amount}h";
+
+  static String m1(hours, remainingMinutes) => "${hours}h ${remainingMinutes}m";
+
+  static String m2(minutes) => "${minutes}m";
+
+  static String m3(percentage) => "${percentage}%";
+
+  static String m4(count) => "${count} workouts";
+
+  static String m5(from, to) => "Course: ${from} - ${to}";
+
+  static String m6(diastolic) => "Diastolic: ${diastolic} mmHg";
+
+  static String m7(systolic) => "Systolic: ${systolic} mmHg";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "amountHours": m0,
+    "amountHoursMinutes": m1,
+    "amountMinutes": m2,
+    "amountOfEach": MessageLookupByLibrary.simpleMessage(
+      "Amount of each workout type",
+    ),
+    "amountPercentage": m3,
+    "amountWorkouts": m4,
     "bloodPressure": MessageLookupByLibrary.simpleMessage("Blood Pressure"),
-    "bloodPressureTap": MessageLookupByLibrary.simpleMessage(
-      "Blood pressure pressed",
+    "bloodPressureHistory": MessageLookupByLibrary.simpleMessage(
+      "Blood Pressure History",
+    ),
+    "bloodPressureTrend": MessageLookupByLibrary.simpleMessage(
+      "Blood Pressure Trend",
     ),
     "bloodSugar": MessageLookupByLibrary.simpleMessage("Blood Sugar"),
-    "bloodSugarTap": MessageLookupByLibrary.simpleMessage(
-      "Blood sugar pressed",
+    "bloodSugarHistory": MessageLookupByLibrary.simpleMessage(
+      "Blood Sugar History",
+    ),
+    "bloodSugarTrend": MessageLookupByLibrary.simpleMessage(
+      "Blood Sugar Trend",
     ),
     "bouldering": MessageLookupByLibrary.simpleMessage("Bouldering"),
     "capsule": MessageLookupByLibrary.simpleMessage("Capsule"),
+    "course": MessageLookupByLibrary.simpleMessage("Course"),
+    "courseDurationTrend": MessageLookupByLibrary.simpleMessage(
+      "Course Duration Trend",
+    ),
+    "courseFromTo": m5,
+    "courseHistory": MessageLookupByLibrary.simpleMessage("Course History"),
     "courseTreatments": MessageLookupByLibrary.simpleMessage(
       "Course Treatments",
     ),
-    "courseTreatmentsTap": MessageLookupByLibrary.simpleMessage(
-      "Course treatments pressed",
-    ),
     "cycling": MessageLookupByLibrary.simpleMessage("Cycling"),
-    "gymnastics": MessageLookupByLibrary.simpleMessage("Gymnastics"),
-    "injection": MessageLookupByLibrary.simpleMessage("Injection"),
-    "medications": MessageLookupByLibrary.simpleMessage("Medications"),
-    "medicationsTap": MessageLookupByLibrary.simpleMessage(
-      "Medications pressed",
+    "dailyAverageBloodSugar": MessageLookupByLibrary.simpleMessage(
+      "Daily Average Blood Sugar",
     ),
+    "dailyAverageBp": MessageLookupByLibrary.simpleMessage(
+      "Daily Average Blood Pressure",
+    ),
+    "dailyAverageTemp": MessageLookupByLibrary.simpleMessage(
+      "Daily Average Temperature",
+    ),
+    "dailyTotalWater": MessageLookupByLibrary.simpleMessage(
+      "Daily Total Water",
+    ),
+    "days": MessageLookupByLibrary.simpleMessage("d"),
+    "degreeCelsius": MessageLookupByLibrary.simpleMessage("°C"),
+    "diastolicAmount": m6,
+    "dosage": MessageLookupByLibrary.simpleMessage("Dosage"),
+    "dosageTrend": MessageLookupByLibrary.simpleMessage(
+      "Dosage Trend Over Time",
+    ),
+    "dosageUnit": MessageLookupByLibrary.simpleMessage("mg"),
+    "gymnastics": MessageLookupByLibrary.simpleMessage("Gymnastics"),
+    "hours": MessageLookupByLibrary.simpleMessage("h"),
+    "injection": MessageLookupByLibrary.simpleMessage("Injection"),
+    "intensity": MessageLookupByLibrary.simpleMessage("Intensity"),
+    "kilometers": MessageLookupByLibrary.simpleMessage("km"),
+    "liters": MessageLookupByLibrary.simpleMessage("L"),
+    "medicationDistribution": MessageLookupByLibrary.simpleMessage(
+      "Medication Distribution",
+    ),
+    "medicationHistory": MessageLookupByLibrary.simpleMessage(
+      "Medication History",
+    ),
+    "medicationTime": MessageLookupByLibrary.simpleMessage("Medication Time"),
+    "medicationTypeDistribution": MessageLookupByLibrary.simpleMessage(
+      "Medication Type Distribution",
+    ),
+    "medications": MessageLookupByLibrary.simpleMessage("Medications"),
+    "mgPerDl": MessageLookupByLibrary.simpleMessage(" mg/dL"),
+    "minutesLowercase": MessageLookupByLibrary.simpleMessage("min"),
     "ml": MessageLookupByLibrary.simpleMessage("ml"),
+    "mood": MessageLookupByLibrary.simpleMessage("Mood"),
+    "moodRating": MessageLookupByLibrary.simpleMessage("Mood Rating"),
+    "moodTrend": MessageLookupByLibrary.simpleMessage("Mood Trend"),
     "noDataInCloud": MessageLookupByLibrary.simpleMessage(
       "No data found in cloud. Try adding data using mobile app.",
     ),
@@ -71,7 +140,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Show your temperature records",
     ),
     "showWater": MessageLookupByLibrary.simpleMessage(
-      "Show your water records",
+      "Show your consumed water records",
     ),
     "showWorkouts": MessageLookupByLibrary.simpleMessage("Show your workouts"),
     "signInWithGoogle": MessageLookupByLibrary.simpleMessage(
@@ -80,24 +149,37 @@ class MessageLookup extends MessageLookupByLibrary {
     "signInWithGoogleAccount": MessageLookupByLibrary.simpleMessage(
       "Sign In with your Google account",
     ),
+    "stress": MessageLookupByLibrary.simpleMessage("Stress"),
     "stressMood": MessageLookupByLibrary.simpleMessage("Stress & Mood"),
-    "stressMoodTap": MessageLookupByLibrary.simpleMessage(
-      "Stress & Mood pressed",
+    "stressMoodHistory": MessageLookupByLibrary.simpleMessage(
+      "Stress & Mood History",
     ),
+    "stressTrend": MessageLookupByLibrary.simpleMessage("Stress Trend"),
     "swimming": MessageLookupByLibrary.simpleMessage("Swimming"),
     "syrup": MessageLookupByLibrary.simpleMessage("Syrup"),
+    "systolicAmount": m7,
     "tablet": MessageLookupByLibrary.simpleMessage("Tablet"),
     "temperature": MessageLookupByLibrary.simpleMessage("Temperature"),
-    "temperatureTap": MessageLookupByLibrary.simpleMessage(
-      "Temperature pressed",
+    "temperatureHistory": MessageLookupByLibrary.simpleMessage(
+      "Temperature History",
+    ),
+    "temperatureTrend": MessageLookupByLibrary.simpleMessage(
+      "Temperature Trend",
     ),
     "tennis": MessageLookupByLibrary.simpleMessage("Tennis"),
+    "theresNotEnoughDataToBuildTheChart": MessageLookupByLibrary.simpleMessage(
+      "There\'s not enough data to build the chart",
+    ),
     "units": MessageLookupByLibrary.simpleMessage("units"),
     "walking": MessageLookupByLibrary.simpleMessage("Walking"),
-    "water": MessageLookupByLibrary.simpleMessage("Water"),
-    "waterTap": MessageLookupByLibrary.simpleMessage("Water pressed"),
+    "water": MessageLookupByLibrary.simpleMessage("Consumed water"),
+    "waterHistory": MessageLookupByLibrary.simpleMessage("Water History"),
+    "waterTrend": MessageLookupByLibrary.simpleMessage("Water Trend"),
     "weightTraining": MessageLookupByLibrary.simpleMessage("Weight Training"),
+    "workoutDurationOver": MessageLookupByLibrary.simpleMessage(
+      "Workout duration over the last 4 days",
+    ),
+    "workoutHistory": MessageLookupByLibrary.simpleMessage("Workout history"),
     "workouts": MessageLookupByLibrary.simpleMessage("Workouts"),
-    "workoutsTap": MessageLookupByLibrary.simpleMessage("Workouts pressed"),
   };
 }

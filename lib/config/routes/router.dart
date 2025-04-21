@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthque_wear_os/config/routes/routes.dart';
 import 'package:healthque_wear_os/features/authorization/authorization.dart';
+import 'package:healthque_wear_os/features/firebase_sync/firebase_sync.dart';
 import 'package:healthque_wear_os/features/main/main.dart';
 import 'package:healthque_wear_os/features/splash/splash.dart';
 
@@ -25,35 +26,67 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: Routes.workoutsPage,
-      builder: (context, state) => WorkoutsPage(),
+      builder: (context, state) {
+        final extra = state.extra as List<Workout>;
+
+        return WorkoutsPage(workouts: extra);
+      },
     ),
     GoRoute(
       path: Routes.bloodPressurePage,
-      builder: (context, state) => BloodPressurePage(),
+      builder: (context, state) {
+        final extra = state.extra as List<BloodPressureRecord>;
+
+        return BloodPressurePage(records: extra);
+      },
     ),
     GoRoute(
       path: Routes.bloodSugarPage,
-      builder: (context, state) => BloodSugarPage(),
+      builder: (context, state) {
+        final extra = state.extra as List<BloodSugarRecord>;
+
+        return BloodSugarPage(records: extra);
+      },
     ),
     GoRoute(
       path: Routes.temperaturePage,
-      builder: (context, state) => TemperaturePage(),
+      builder: (context, state) {
+        final extra = state.extra as List<TemperatureRecord>;
+
+        return TemperaturePage(records: extra);
+      },
     ),
     GoRoute(
       path: Routes.waterPage,
-      builder: (context, state) => WaterPage(),
+      builder: (context, state) {
+        final extra = state.extra as List<WaterRecord>;
+
+        return WaterPage(records: extra);
+      },
     ),
     GoRoute(
       path: Routes.stressMoodPage,
-      builder: (context, state) => StressMoodPage(),
+      builder: (context, state) {
+        final extra = state.extra as List<StressMoodRecord>;
+
+        return StressMoodPage(records: extra);
+      },
     ),
     GoRoute(
       path: Routes.medicationsPage,
-      builder: (context, state) => MedicationsPage(),
+      builder: (context, state) {
+        final extra = state.extra as List<Medication>;
+
+        return MedicationsPage(records: extra);
+      },
     ),
     GoRoute(
       path: Routes.courseTreatmentsPage,
-      builder: (context, state) => CourseTreatmentsPage(),
+      builder: (context, state) {
+        final extra = state.extra as List<CourseTreatment>;
+
+        return CourseTreatmentsPage(courses: extra);
+      },
     ),
   ],
 );

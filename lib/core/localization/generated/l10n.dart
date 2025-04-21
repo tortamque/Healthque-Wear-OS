@@ -185,16 +185,6 @@ class Strings {
     );
   }
 
-  /// `Workouts pressed`
-  String get workoutsTap {
-    return Intl.message(
-      'Workouts pressed',
-      name: 'workoutsTap',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Blood Pressure`
   String get bloodPressure {
     return Intl.message(
@@ -215,16 +205,6 @@ class Strings {
     );
   }
 
-  /// `Blood pressure pressed`
-  String get bloodPressureTap {
-    return Intl.message(
-      'Blood pressure pressed',
-      name: 'bloodPressureTap',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Temperature`
   String get temperature {
     return Intl.message('Temperature', name: 'temperature', desc: '', args: []);
@@ -235,16 +215,6 @@ class Strings {
     return Intl.message(
       'Show your temperature records',
       name: 'showTemperature',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Temperature pressed`
-  String get temperatureTap {
-    return Intl.message(
-      'Temperature pressed',
-      name: 'temperatureTap',
       desc: '',
       args: [],
     );
@@ -265,34 +235,19 @@ class Strings {
     );
   }
 
-  /// `Blood sugar pressed`
-  String get bloodSugarTap {
-    return Intl.message(
-      'Blood sugar pressed',
-      name: 'bloodSugarTap',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Water`
+  /// `Consumed water`
   String get water {
-    return Intl.message('Water', name: 'water', desc: '', args: []);
+    return Intl.message('Consumed water', name: 'water', desc: '', args: []);
   }
 
-  /// `Show your water records`
+  /// `Show your consumed water records`
   String get showWater {
     return Intl.message(
-      'Show your water records',
+      'Show your consumed water records',
       name: 'showWater',
       desc: '',
       args: [],
     );
-  }
-
-  /// `Water pressed`
-  String get waterTap {
-    return Intl.message('Water pressed', name: 'waterTap', desc: '', args: []);
   }
 
   /// `Stress & Mood`
@@ -310,16 +265,6 @@ class Strings {
     return Intl.message(
       'Show your stress & mood journal',
       name: 'showStressMood',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Stress & Mood pressed`
-  String get stressMoodTap {
-    return Intl.message(
-      'Stress & Mood pressed',
-      name: 'stressMoodTap',
       desc: '',
       args: [],
     );
@@ -345,16 +290,6 @@ class Strings {
     );
   }
 
-  /// `Course treatments pressed`
-  String get courseTreatmentsTap {
-    return Intl.message(
-      'Course treatments pressed',
-      name: 'courseTreatmentsTap',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Medications`
   String get medications {
     return Intl.message('Medications', name: 'medications', desc: '', args: []);
@@ -370,14 +305,404 @@ class Strings {
     );
   }
 
-  /// `Medications pressed`
-  String get medicationsTap {
+  /// `There's not enough data to build the chart`
+  String get theresNotEnoughDataToBuildTheChart {
     return Intl.message(
-      'Medications pressed',
-      name: 'medicationsTap',
+      'There\'s not enough data to build the chart',
+      name: 'theresNotEnoughDataToBuildTheChart',
       desc: '',
       args: [],
     );
+  }
+
+  /// `{percentage}%`
+  String amountPercentage(Object percentage) {
+    return Intl.message(
+      '$percentage%',
+      name: 'amountPercentage',
+      desc: '',
+      args: [percentage],
+    );
+  }
+
+  /// `{count} workouts`
+  String amountWorkouts(Object count) {
+    return Intl.message(
+      '$count workouts',
+      name: 'amountWorkouts',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `min`
+  String get minutesLowercase {
+    return Intl.message('min', name: 'minutesLowercase', desc: '', args: []);
+  }
+
+  /// `Intensity`
+  String get intensity {
+    return Intl.message('Intensity', name: 'intensity', desc: '', args: []);
+  }
+
+  /// `km`
+  String get kilometers {
+    return Intl.message('km', name: 'kilometers', desc: '', args: []);
+  }
+
+  /// `Mood Rating`
+  String get moodRating {
+    return Intl.message('Mood Rating', name: 'moodRating', desc: '', args: []);
+  }
+
+  /// `h`
+  String get hours {
+    return Intl.message('h', name: 'hours', desc: '', args: []);
+  }
+
+  /// `Amount of each workout type`
+  String get amountOfEach {
+    return Intl.message(
+      'Amount of each workout type',
+      name: 'amountOfEach',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Workout duration over the last 4 days`
+  String get workoutDurationOver {
+    return Intl.message(
+      'Workout duration over the last 4 days',
+      name: 'workoutDurationOver',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Workout history`
+  String get workoutHistory {
+    return Intl.message(
+      'Workout history',
+      name: 'workoutHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{amount}h`
+  String amountHours(Object amount) {
+    return Intl.message(
+      '${amount}h',
+      name: 'amountHours',
+      desc: '',
+      args: [amount],
+    );
+  }
+
+  /// `{hours}h {remainingMinutes}m`
+  String amountHoursMinutes(Object hours, Object remainingMinutes) {
+    return Intl.message(
+      '${hours}h ${remainingMinutes}m',
+      name: 'amountHoursMinutes',
+      desc: '',
+      args: [hours, remainingMinutes],
+    );
+  }
+
+  /// `{minutes}m`
+  String amountMinutes(Object minutes) {
+    return Intl.message(
+      '${minutes}m',
+      name: 'amountMinutes',
+      desc: '',
+      args: [minutes],
+    );
+  }
+
+  /// `Blood Pressure Trend`
+  String get bloodPressureTrend {
+    return Intl.message(
+      'Blood Pressure Trend',
+      name: 'bloodPressureTrend',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Daily Average Blood Pressure`
+  String get dailyAverageBp {
+    return Intl.message(
+      'Daily Average Blood Pressure',
+      name: 'dailyAverageBp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Blood Pressure History`
+  String get bloodPressureHistory {
+    return Intl.message(
+      'Blood Pressure History',
+      name: 'bloodPressureHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Systolic: {systolic} mmHg`
+  String systolicAmount(Object systolic) {
+    return Intl.message(
+      'Systolic: $systolic mmHg',
+      name: 'systolicAmount',
+      desc: '',
+      args: [systolic],
+    );
+  }
+
+  /// `Diastolic: {diastolic} mmHg`
+  String diastolicAmount(Object diastolic) {
+    return Intl.message(
+      'Diastolic: $diastolic mmHg',
+      name: 'diastolicAmount',
+      desc: '',
+      args: [diastolic],
+    );
+  }
+
+  /// `Temperature Trend`
+  String get temperatureTrend {
+    return Intl.message(
+      'Temperature Trend',
+      name: 'temperatureTrend',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Daily Average Temperature`
+  String get dailyAverageTemp {
+    return Intl.message(
+      'Daily Average Temperature',
+      name: 'dailyAverageTemp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Temperature History`
+  String get temperatureHistory {
+    return Intl.message(
+      'Temperature History',
+      name: 'temperatureHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `°C`
+  String get degreeCelsius {
+    return Intl.message('°C', name: 'degreeCelsius', desc: '', args: []);
+  }
+
+  /// `Blood Sugar Trend`
+  String get bloodSugarTrend {
+    return Intl.message(
+      'Blood Sugar Trend',
+      name: 'bloodSugarTrend',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Daily Average Blood Sugar`
+  String get dailyAverageBloodSugar {
+    return Intl.message(
+      'Daily Average Blood Sugar',
+      name: 'dailyAverageBloodSugar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Blood Sugar History`
+  String get bloodSugarHistory {
+    return Intl.message(
+      'Blood Sugar History',
+      name: 'bloodSugarHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` mg/dL`
+  String get mgPerDl {
+    return Intl.message(' mg/dL', name: 'mgPerDl', desc: '', args: []);
+  }
+
+  /// `Water Trend`
+  String get waterTrend {
+    return Intl.message('Water Trend', name: 'waterTrend', desc: '', args: []);
+  }
+
+  /// `Daily Total Water`
+  String get dailyTotalWater {
+    return Intl.message(
+      'Daily Total Water',
+      name: 'dailyTotalWater',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Water History`
+  String get waterHistory {
+    return Intl.message(
+      'Water History',
+      name: 'waterHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `L`
+  String get liters {
+    return Intl.message('L', name: 'liters', desc: '', args: []);
+  }
+
+  /// `Stress Trend`
+  String get stressTrend {
+    return Intl.message(
+      'Stress Trend',
+      name: 'stressTrend',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mood Trend`
+  String get moodTrend {
+    return Intl.message('Mood Trend', name: 'moodTrend', desc: '', args: []);
+  }
+
+  /// `Stress & Mood History`
+  String get stressMoodHistory {
+    return Intl.message(
+      'Stress & Mood History',
+      name: 'stressMoodHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stress`
+  String get stress {
+    return Intl.message('Stress', name: 'stress', desc: '', args: []);
+  }
+
+  /// `Mood`
+  String get mood {
+    return Intl.message('Mood', name: 'mood', desc: '', args: []);
+  }
+
+  /// `Course Duration Trend`
+  String get courseDurationTrend {
+    return Intl.message(
+      'Course Duration Trend',
+      name: 'courseDurationTrend',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Medication Distribution`
+  String get medicationDistribution {
+    return Intl.message(
+      'Medication Distribution',
+      name: 'medicationDistribution',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Course History`
+  String get courseHistory {
+    return Intl.message(
+      'Course History',
+      name: 'courseHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Course: {from} - {to}`
+  String courseFromTo(Object from, Object to) {
+    return Intl.message(
+      'Course: $from - $to',
+      name: 'courseFromTo',
+      desc: '',
+      args: [from, to],
+    );
+  }
+
+  /// `Medication Time`
+  String get medicationTime {
+    return Intl.message(
+      'Medication Time',
+      name: 'medicationTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `d`
+  String get days {
+    return Intl.message('d', name: 'days', desc: '', args: []);
+  }
+
+  /// `Medication Type Distribution`
+  String get medicationTypeDistribution {
+    return Intl.message(
+      'Medication Type Distribution',
+      name: 'medicationTypeDistribution',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dosage Trend Over Time`
+  String get dosageTrend {
+    return Intl.message(
+      'Dosage Trend Over Time',
+      name: 'dosageTrend',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Medication History`
+  String get medicationHistory {
+    return Intl.message(
+      'Medication History',
+      name: 'medicationHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dosage`
+  String get dosage {
+    return Intl.message('Dosage', name: 'dosage', desc: '', args: []);
+  }
+
+  /// `Course`
+  String get course {
+    return Intl.message('Course', name: 'course', desc: '', args: []);
+  }
+
+  /// `mg`
+  String get dosageUnit {
+    return Intl.message('mg', name: 'dosageUnit', desc: '', args: []);
   }
 }
 
@@ -385,7 +710,10 @@ class AppLocalizationDelegate extends LocalizationsDelegate<Strings> {
   const AppLocalizationDelegate();
 
   List<Locale> get supportedLocales {
-    return const <Locale>[Locale.fromSubtags(languageCode: 'en')];
+    return const <Locale>[
+      Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'uk'),
+    ];
   }
 
   @override
