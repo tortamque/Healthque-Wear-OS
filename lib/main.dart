@@ -58,6 +58,7 @@ class HealthqueWearOSApp extends StatelessWidget {
           final color = Color(state.syncData?.themePreference.seedColorValue ?? defaultColorSeed);
 
           return MaterialApp.router(
+            debugShowCheckedModeBanner: false,
             theme: themeData(color: color),
             routerConfig: router,
             localizationsDelegates: [

@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:healthque_wear_os/core/extensions/color.dart';
 import 'package:healthque_wear_os/core/extensions/context.dart';
 import 'package:healthque_wear_os/core/extensions/int.dart';
 import 'package:healthque_wear_os/core/shared/shared.dart';
@@ -117,7 +118,7 @@ class MoodTrendLineChart extends StatelessWidget {
               dotData: FlDotData(show: true),
               belowBarData: BarAreaData(
                 show: true,
-                color: context.theme.colorScheme.primary.withOpacity(0.3),
+                color: context.theme.colorScheme.primary.customOpacity(0.3),
               ),
             ),
           ],
