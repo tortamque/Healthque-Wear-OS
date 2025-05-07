@@ -49,7 +49,7 @@ class MoodTrendLineChart extends StatelessWidget {
     final double margin = (maxMood - minMood) * 0.1;
     final double chartMinY = minMood - margin;
     final double chartMaxY = maxMood + margin;
-    final double rightInterval = (chartMaxY - chartMinY) / 4;
+    final double rightInterval = (chartMaxY - chartMinY) / 5;
 
     return AspectRatio(
       aspectRatio: 1,
@@ -83,6 +83,7 @@ class MoodTrendLineChart extends StatelessWidget {
             rightTitles: AxisTitles(
               sideTitles: SideTitles(
                 maxIncluded: false,
+                minIncluded: false,
                 showTitles: true,
                 reservedSize: 40,
                 interval: rightInterval,
