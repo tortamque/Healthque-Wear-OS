@@ -22,14 +22,13 @@ class CourseTreatmentAdapter extends TypeAdapter<CourseTreatment> {
       courseStart: fields[2] as DateTime,
       courseEnd: fields[3] as DateTime,
       medicationTime: fields[4] as DateTime,
-      repeatInterval: fields[5] as DateTimeComponents,
     );
   }
 
   @override
   void write(BinaryWriter writer, CourseTreatment obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -39,9 +38,7 @@ class CourseTreatmentAdapter extends TypeAdapter<CourseTreatment> {
       ..writeByte(3)
       ..write(obj.courseEnd)
       ..writeByte(4)
-      ..write(obj.medicationTime)
-      ..writeByte(5)
-      ..write(obj.repeatInterval);
+      ..write(obj.medicationTime);
   }
 
   @override
@@ -145,8 +142,6 @@ _CourseTreatment _$CourseTreatmentFromJson(Map<String, dynamic> json) =>
       courseStart: DateTime.parse(json['courseStart'] as String),
       courseEnd: DateTime.parse(json['courseEnd'] as String),
       medicationTime: DateTime.parse(json['medicationTime'] as String),
-      repeatInterval:
-          $enumDecode(_$DateTimeComponentsEnumMap, json['repeatInterval']),
     );
 
 Map<String, dynamic> _$CourseTreatmentToJson(_CourseTreatment instance) =>
@@ -156,15 +151,7 @@ Map<String, dynamic> _$CourseTreatmentToJson(_CourseTreatment instance) =>
       'courseStart': instance.courseStart.toIso8601String(),
       'courseEnd': instance.courseEnd.toIso8601String(),
       'medicationTime': instance.medicationTime.toIso8601String(),
-      'repeatInterval': _$DateTimeComponentsEnumMap[instance.repeatInterval]!,
     };
-
-const _$DateTimeComponentsEnumMap = {
-  DateTimeComponents.time: 'time',
-  DateTimeComponents.dayOfWeekAndTime: 'dayOfWeekAndTime',
-  DateTimeComponents.dayOfMonthAndTime: 'dayOfMonthAndTime',
-  DateTimeComponents.dateAndTime: 'dateAndTime',
-};
 
 _CourseTreatmentEntry _$CourseTreatmentEntryFromJson(
         Map<String, dynamic> json) =>

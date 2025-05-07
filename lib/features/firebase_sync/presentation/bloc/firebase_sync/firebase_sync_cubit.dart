@@ -95,28 +95,40 @@ class FirebaseSyncCubit extends Cubit<FirebaseSyncState> {
 
     final Map<String, dynamic> profileJson =
         jsonData["profile"] != null ? _castMapDeep(jsonData["profile"] as Map) : {};
+
     final Map<String, dynamic> workoutsJson =
         jsonData["workouts"] != null ? _castMapDeep(jsonData["workouts"] as Map) : {"workouts": []};
+
     final Map<String, dynamic> bloodPressureRecordsJson = jsonData["bloodPressureRecords"] != null
         ? _castMapDeep(jsonData["bloodPressureRecords"] as Map)
         : {"records": []};
+
     final Map<String, dynamic> temperatureRecordsJson =
         jsonData["temperatureRecords"] != null ? _castMapDeep(jsonData["temperatureRecords"] as Map) : {"records": []};
+
     final Map<String, dynamic> bloodSugarRecordsJson =
         jsonData["bloodSugarRecords"] != null ? _castMapDeep(jsonData["bloodSugarRecords"] as Map) : {"records": []};
+
     final Map<String, dynamic> waterRecordsJson =
         jsonData["waterRecords"] != null ? _castMapDeep(jsonData["waterRecords"] as Map) : {"records": []};
+
     final Map<String, dynamic> stressMoodRecordsJson =
         jsonData["stressMoodRecords"] != null ? _castMapDeep(jsonData["stressMoodRecords"] as Map) : {"records": []};
+
     final Map<String, dynamic> notificationsJson =
         jsonData["notifications"] != null ? _castMapDeep(jsonData["notifications"] as Map) : {"notifications": []};
+
     final Map<String, dynamic> courseTreatmentsJson = jsonData["courseTreatments"] is Map
         ? _castMapDeep(jsonData["courseTreatments"] as Map<dynamic, dynamic>)
         : {"courses": []};
+
     final Map<String, dynamic> medicationsJson =
         jsonData["medications"] != null ? _castMapDeep(jsonData["medications"] as Map) : {"medications": []};
-    final Map<String, dynamic> themePreferenceJson =
-        jsonData["themePreference"] != null ? _castMapDeep(jsonData["themePreference"] as Map) : {};
+
+    final Map<String, dynamic> themePreferenceJson = jsonData["themePreference"] != null
+        ? _castMapDeep(jsonData["themePreference"] as Map)
+        : {"seedColorValue": 4285132974};
+
     final Map<String, dynamic> localeJson =
         jsonData["locale"] != null ? _castMapDeep(jsonData["locale"] as Map) : {"locale": "en"};
 
