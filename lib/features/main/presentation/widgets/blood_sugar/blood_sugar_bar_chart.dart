@@ -27,7 +27,7 @@ class BloodSugarAveragesBarChart extends StatelessWidget {
     }
     final List<String> sortedDays = grouped.keys.toList()..sort();
 
-    if (sortedDays.isEmpty) {
+    if (sortedDays.isEmpty || sortedDays.length < 2) {
       return const NotEnoughDataPlaceholder(padding: EdgeInsets.symmetric(vertical: 8));
     }
 
