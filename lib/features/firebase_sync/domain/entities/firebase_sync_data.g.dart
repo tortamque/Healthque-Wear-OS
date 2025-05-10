@@ -8,27 +8,47 @@ part of 'firebase_sync_data.dart';
 
 _FirebaseSyncData _$FirebaseSyncDataFromJson(Map<String, dynamic> json) =>
     _FirebaseSyncData(
-      profile: User.fromJson(json['profile'] as Map<String, dynamic>),
-      workouts: Workouts.fromJson(json['workouts'] as Map<String, dynamic>),
-      bloodPressureRecords: BloodPressureRecords.fromJson(
-          json['bloodPressureRecords'] as Map<String, dynamic>),
-      temperatureRecords: TemperatureRecords.fromJson(
-          json['temperatureRecords'] as Map<String, dynamic>),
-      bloodSugarRecords: BloodSugarRecords.fromJson(
-          json['bloodSugarRecords'] as Map<String, dynamic>),
-      waterRecords:
-          WaterRecords.fromJson(json['waterRecords'] as Map<String, dynamic>),
-      stressMoodRecords: StressMoodRecords.fromJson(
-          json['stressMoodRecords'] as Map<String, dynamic>),
-      notifications: LocalNotifications.fromJson(
-          json['notifications'] as Map<String, dynamic>),
-      courseTreatments: CourseTreatments.fromJson(
-          json['courseTreatments'] as Map<String, dynamic>),
-      medications:
-          Medications.fromJson(json['medications'] as Map<String, dynamic>),
-      themePreference: ThemePreference.fromJson(
-          json['themePreference'] as Map<String, dynamic>),
-      locale: json['locale'] as String,
+      profile: json['profile'] == null
+          ? null
+          : User.fromJson(json['profile'] as Map<String, dynamic>),
+      workouts: json['workouts'] == null
+          ? null
+          : Workouts.fromJson(json['workouts'] as Map<String, dynamic>),
+      bloodPressureRecords: json['bloodPressureRecords'] == null
+          ? null
+          : BloodPressureRecords.fromJson(
+              json['bloodPressureRecords'] as Map<String, dynamic>),
+      temperatureRecords: json['temperatureRecords'] == null
+          ? null
+          : TemperatureRecords.fromJson(
+              json['temperatureRecords'] as Map<String, dynamic>),
+      bloodSugarRecords: json['bloodSugarRecords'] == null
+          ? null
+          : BloodSugarRecords.fromJson(
+              json['bloodSugarRecords'] as Map<String, dynamic>),
+      waterRecords: json['waterRecords'] == null
+          ? null
+          : WaterRecords.fromJson(json['waterRecords'] as Map<String, dynamic>),
+      stressMoodRecords: json['stressMoodRecords'] == null
+          ? null
+          : StressMoodRecords.fromJson(
+              json['stressMoodRecords'] as Map<String, dynamic>),
+      notifications: json['notifications'] == null
+          ? null
+          : LocalNotifications.fromJson(
+              json['notifications'] as Map<String, dynamic>),
+      courseTreatments: json['courseTreatments'] == null
+          ? null
+          : CourseTreatments.fromJson(
+              json['courseTreatments'] as Map<String, dynamic>),
+      medications: json['medications'] == null
+          ? null
+          : Medications.fromJson(json['medications'] as Map<String, dynamic>),
+      themePreference: json['themePreference'] == null
+          ? null
+          : ThemePreference.fromJson(
+              json['themePreference'] as Map<String, dynamic>),
+      locale: json['locale'] as String?,
     );
 
 Map<String, dynamic> _$FirebaseSyncDataToJson(_FirebaseSyncData instance) =>

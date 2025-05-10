@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthque_wear_os/config/routes/routes.dart';
 import 'package:healthque_wear_os/features/authorization/authorization.dart';
@@ -18,7 +19,11 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: Routes.dashboardPage,
-      builder: (context, state) => DashboardPage(),
+      builder: (context, state) {
+        context.read<FirebaseSyncCubit>().init();
+
+        return DashboardPage();
+      },
     ),
     GoRoute(
       path: Routes.splashScreen,
