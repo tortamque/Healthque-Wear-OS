@@ -55,7 +55,7 @@ class BloodSugarAveragesBarChart extends StatelessWidget {
         ),
       );
     }
-    final double margin = (globalMax - globalMin) * 0.1;
+    final double margin = (globalMax - globalMin) * 0.1 == 0 ? 1 : (globalMax - globalMin) * 0.1;
     final double chartMinY = globalMin - margin;
     final double chartMaxY = globalMax + margin;
     final double interval = (chartMaxY - chartMinY) / 3;

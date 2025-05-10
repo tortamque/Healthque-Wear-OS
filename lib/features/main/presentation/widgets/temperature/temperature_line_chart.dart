@@ -45,7 +45,7 @@ class TemperatureTrendLineChart extends StatelessWidget {
       spots.add(FlSpot(i.toDouble(), avgTemp));
     }
 
-    final double margin = (maxY - minYValue) * 0.1;
+    final double margin = (maxY - minYValue) * 0.1 == 0 ? 1 : (maxY - minYValue) * 0.1;
     final double chartMinY = minYValue - margin;
     final double chartMaxY = maxY + margin;
     final double rightInterval = (chartMaxY - chartMinY) / 4;

@@ -44,7 +44,7 @@ class CourseTreatmentTrendLineChart extends StatelessWidget {
       spots.add(FlSpot(i.toDouble(), durationDays));
     }
 
-    final double margin = (maxDuration - minDuration) * 0.1;
+    final double margin = (maxDuration - minDuration) * 0.1 == 0 ? 1 : (maxDuration - minDuration) * 0.1;
     final double chartMinY = minDuration - margin;
     final double chartMaxY = maxDuration + margin;
     final double rightInterval = (chartMaxY - chartMinY) / 4 < 1 ? 1 : (chartMaxY - chartMinY) / 4;
