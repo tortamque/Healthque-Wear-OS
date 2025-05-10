@@ -43,7 +43,7 @@ class StressTrendLineChart extends StatelessWidget {
       minStress = min(minStress, avgStress);
       spots.add(FlSpot(i.toDouble(), avgStress));
     }
-    final double margin = (maxStress - minStress) * 0.1;
+    final double margin = (maxStress - minStress) * 0.1 == 0 ? 1 : (maxStress - minStress) * 0.1;
     final double chartMinY = minStress - margin;
     final double chartMaxY = maxStress + margin;
     final double rightInterval = (chartMaxY - chartMinY) / 4;

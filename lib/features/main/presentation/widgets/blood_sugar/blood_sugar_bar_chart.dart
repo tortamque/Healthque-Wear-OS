@@ -27,7 +27,7 @@ class BloodSugarAveragesBarChart extends StatelessWidget {
     }
     final List<String> sortedDays = grouped.keys.toList()..sort();
 
-    if (sortedDays.isEmpty) {
+    if (sortedDays.isEmpty || sortedDays.length < 2) {
       return const NotEnoughDataPlaceholder(padding: EdgeInsets.symmetric(vertical: 8));
     }
 
@@ -55,7 +55,7 @@ class BloodSugarAveragesBarChart extends StatelessWidget {
         ),
       );
     }
-    final double margin = (globalMax - globalMin) * 0.1;
+    final double margin = (globalMax - globalMin) * 0.1 == 0 ? 1 : (globalMax - globalMin) * 0.1;
     final double chartMinY = globalMin - margin;
     final double chartMaxY = globalMax + margin;
     final double interval = (chartMaxY - chartMinY) / 3;

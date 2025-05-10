@@ -7,18 +7,18 @@ part 'firebase_sync_data.g.dart';
 @freezed
 abstract class FirebaseSyncData with _$FirebaseSyncData {
   const factory FirebaseSyncData({
-    required User profile,
-    required Workouts workouts,
-    required BloodPressureRecords bloodPressureRecords,
-    required TemperatureRecords temperatureRecords,
-    required BloodSugarRecords bloodSugarRecords,
-    required WaterRecords waterRecords,
-    required StressMoodRecords stressMoodRecords,
-    required LocalNotifications notifications,
-    required CourseTreatments courseTreatments,
-    required Medications medications,
-    required ThemePreference themePreference,
-    required String locale,
+    User? profile,
+    Workouts? workouts,
+    BloodPressureRecords? bloodPressureRecords,
+    TemperatureRecords? temperatureRecords,
+    BloodSugarRecords? bloodSugarRecords,
+    WaterRecords? waterRecords,
+    StressMoodRecords? stressMoodRecords,
+    LocalNotifications? notifications,
+    CourseTreatments? courseTreatments,
+    Medications? medications,
+    ThemePreference? themePreference,
+    String? locale,
   }) = _FirebaseSyncData;
 
   factory FirebaseSyncData.fromJson(Map<String, dynamic> json) => _$FirebaseSyncDataFromJson(json);

@@ -1,4 +1,3 @@
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:healthque_wear_os/features/firebase_sync/firebase_sync.dart';
 import 'package:hive/hive.dart';
@@ -15,7 +14,6 @@ abstract class CourseTreatment with _$CourseTreatment {
     @HiveField(2) required DateTime courseStart,
     @HiveField(3) required DateTime courseEnd,
     @HiveField(4) required DateTime medicationTime,
-    @HiveField(5) required DateTimeComponents repeatInterval,
   }) = _CourseTreatment;
 
   factory CourseTreatment.fromJson(Map<String, dynamic> json) => _$CourseTreatmentFromJson(json);
@@ -42,20 +40,4 @@ abstract class CourseTreatments with _$CourseTreatments {
   }) = _CourseTreatments;
 
   factory CourseTreatments.fromJson(Map<String, dynamic> json) => _$CourseTreatmentsFromJson(json);
-}
-
-class DateTimeComponentsAdapter extends TypeAdapter<DateTimeComponents> {
-  @override
-  final int typeId = 17;
-
-  @override
-  DateTimeComponents read(BinaryReader reader) {
-    final index = reader.readInt();
-    return DateTimeComponents.values[index];
-  }
-
-  @override
-  void write(BinaryWriter writer, DateTimeComponents obj) {
-    writer.writeInt(obj.index);
-  }
 }

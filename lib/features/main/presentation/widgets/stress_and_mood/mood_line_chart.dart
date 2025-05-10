@@ -17,39 +17,31 @@ class MoodTrendLineChart extends StatelessWidget {
     if (records.isEmpty) {
       return const NotEnoughDataPlaceholder(padding: EdgeInsets.symmetric(vertical: 8));
     }
+    final sortedRecords = List<StressMoodRecord>.from(records)
+      ..sort((a, b) => a.measurementTime.compareTo(b.measurementTime));
 
-    final Map<String, List<StressMoodRecord>> grouped = {};
-    for (final record in records) {
-      final key =
-          "${record.measurementTime.year}-${record.measurementTime.month.toString().padLeft(2, '0')}-${record.measurementTime.day.toString().padLeft(2, '0')}";
-      grouped.update(key, (list) {
-        list.add(record);
-        return list;
-      }, ifAbsent: () => [record]);
-    }
-    final List<String> sortedDays = grouped.keys.toList()..sort();
+    final displayRecords = sortedRecords.length > 4 ? sortedRecords.sublist(sortedRecords.length - 4) : sortedRecords;
 
-    if (sortedDays.length < 2) {
+    if (displayRecords.length < 2) {
       return const NotEnoughDataPlaceholder(padding: EdgeInsets.symmetric(vertical: 8));
     }
-
-    final List<String> displayDays = sortedDays.length > 4 ? sortedDays.sublist(sortedDays.length - 4) : sortedDays;
 
     final List<FlSpot> spots = [];
     double maxMood = -double.infinity;
     double minMood = double.infinity;
-    for (int i = 0; i < displayDays.length; i++) {
-      final List<StressMoodRecord> dayRecords = grouped[displayDays[i]]!;
-      final double avgMood = dayRecords.map((r) => r.mood).reduce((a, b) => a + b) / dayRecords.length;
-      maxMood = max(maxMood, avgMood);
-      minMood = min(minMood, avgMood);
-      spots.add(FlSpot(i.toDouble(), avgMood));
+
+    for (int i = 0; i < displayRecords.length; i++) {
+      final record = displayRecords[i];
+      final double moodValue = record.mood.toDouble();
+      maxMood = max(maxMood, moodValue);
+      minMood = min(minMood, moodValue);
+      spots.add(FlSpot(i.toDouble(), moodValue));
     }
 
     final double margin = (maxMood - minMood) * 0.1;
     final double chartMinY = minMood - margin;
     final double chartMaxY = maxMood + margin;
-    final double rightInterval = (chartMaxY - chartMinY) / 4;
+    final double rightInterval = (chartMaxY - chartMinY) / 5;
 
     return AspectRatio(
       aspectRatio: 1,
@@ -64,14 +56,16 @@ class MoodTrendLineChart extends StatelessWidget {
                 reservedSize: 24,
                 interval: 1,
                 getTitlesWidget: (value, meta) {
-                  if (value.toInt() < displayDays.length) {
-                    final parts = displayDays[value.toInt()].split('-');
-                    final label = "${parts[2]}.${parts[1]}";
+                  final index = value.toInt();
+                  if (index >= 0 && index < displayRecords.length) {
+                    final time = displayRecords[index].measurementTime;
+                    final day = time.day.toString().padLeft(2, '0');
+                    final month = time.month.toString().padLeft(2, '0');
                     return SideTitleWidget(
                       meta: meta,
                       space: 4,
                       child: Text(
-                        label,
+                        "$day.$month",
                         style: const TextStyle(fontSize: 10),
                       ),
                     );
@@ -83,6 +77,7 @@ class MoodTrendLineChart extends StatelessWidget {
             rightTitles: AxisTitles(
               sideTitles: SideTitles(
                 maxIncluded: false,
+                minIncluded: false,
                 showTitles: true,
                 reservedSize: 40,
                 interval: rightInterval,
@@ -106,7 +101,7 @@ class MoodTrendLineChart extends StatelessWidget {
           ),
           borderData: FlBorderData(show: false),
           minX: 0,
-          maxX: (displayDays.length - 1).toDouble(),
+          maxX: (displayRecords.length - 1).toDouble(),
           minY: chartMinY,
           maxY: chartMaxY,
           lineBarsData: [

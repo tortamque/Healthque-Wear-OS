@@ -43,7 +43,7 @@ class MedicationDosageTrendLineChart extends StatelessWidget {
       globalMin = min(globalMin, avgDosage);
       spots.add(FlSpot(i.toDouble(), avgDosage));
     }
-    final double margin = (globalMax - globalMin) * 0.1;
+    final double margin = (globalMax - globalMin) * 0.1 == 0 ? 1 : (globalMax - globalMin) * 0.1;
     final double chartMinY = globalMin - margin;
     final double chartMaxY = globalMax + margin;
     final double rightInterval = (chartMaxY - chartMinY) / 4;

@@ -14,7 +14,7 @@ class BloodPressureTrendLineChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (records.isEmpty) {
+    if (records.isEmpty || records.length < 2) {
       return const NotEnoughDataPlaceholder(padding: EdgeInsets.symmetric(vertical: 8));
     }
 

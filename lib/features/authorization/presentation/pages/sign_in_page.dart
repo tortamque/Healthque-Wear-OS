@@ -31,8 +31,8 @@ class _SignInPageState extends State<SignInPage> {
             child: BlocConsumer<AuthCubit, AuthState>(
               listener: (context, state) {
                 if (state is AuthStateAuthenticated) {
-                  context.go(Routes.dashboardPage);
                   context.read<FirebaseSyncCubit>().init();
+                  context.go(Routes.dashboardPage);
                 }
               },
               builder: (context, state) {

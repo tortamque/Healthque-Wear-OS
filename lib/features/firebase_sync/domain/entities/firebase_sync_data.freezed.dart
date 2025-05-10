@@ -15,18 +15,18 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$FirebaseSyncData {
-  User get profile;
-  Workouts get workouts;
-  BloodPressureRecords get bloodPressureRecords;
-  TemperatureRecords get temperatureRecords;
-  BloodSugarRecords get bloodSugarRecords;
-  WaterRecords get waterRecords;
-  StressMoodRecords get stressMoodRecords;
-  LocalNotifications get notifications;
-  CourseTreatments get courseTreatments;
-  Medications get medications;
-  ThemePreference get themePreference;
-  String get locale;
+  User? get profile;
+  Workouts? get workouts;
+  BloodPressureRecords? get bloodPressureRecords;
+  TemperatureRecords? get temperatureRecords;
+  BloodSugarRecords? get bloodSugarRecords;
+  WaterRecords? get waterRecords;
+  StressMoodRecords? get stressMoodRecords;
+  LocalNotifications? get notifications;
+  CourseTreatments? get courseTreatments;
+  Medications? get medications;
+  ThemePreference? get themePreference;
+  String? get locale;
 
   /// Create a copy of FirebaseSyncData
   /// with the given fields replaced by the non-null parameter values.
@@ -98,30 +98,30 @@ abstract mixin class $FirebaseSyncDataCopyWith<$Res> {
       _$FirebaseSyncDataCopyWithImpl;
   @useResult
   $Res call(
-      {User profile,
-      Workouts workouts,
-      BloodPressureRecords bloodPressureRecords,
-      TemperatureRecords temperatureRecords,
-      BloodSugarRecords bloodSugarRecords,
-      WaterRecords waterRecords,
-      StressMoodRecords stressMoodRecords,
-      LocalNotifications notifications,
-      CourseTreatments courseTreatments,
-      Medications medications,
-      ThemePreference themePreference,
-      String locale});
+      {User? profile,
+      Workouts? workouts,
+      BloodPressureRecords? bloodPressureRecords,
+      TemperatureRecords? temperatureRecords,
+      BloodSugarRecords? bloodSugarRecords,
+      WaterRecords? waterRecords,
+      StressMoodRecords? stressMoodRecords,
+      LocalNotifications? notifications,
+      CourseTreatments? courseTreatments,
+      Medications? medications,
+      ThemePreference? themePreference,
+      String? locale});
 
-  $UserCopyWith<$Res> get profile;
-  $WorkoutsCopyWith<$Res> get workouts;
-  $BloodPressureRecordsCopyWith<$Res> get bloodPressureRecords;
-  $TemperatureRecordsCopyWith<$Res> get temperatureRecords;
-  $BloodSugarRecordsCopyWith<$Res> get bloodSugarRecords;
-  $WaterRecordsCopyWith<$Res> get waterRecords;
-  $StressMoodRecordsCopyWith<$Res> get stressMoodRecords;
-  $LocalNotificationsCopyWith<$Res> get notifications;
-  $CourseTreatmentsCopyWith<$Res> get courseTreatments;
-  $MedicationsCopyWith<$Res> get medications;
-  $ThemePreferenceCopyWith<$Res> get themePreference;
+  $UserCopyWith<$Res>? get profile;
+  $WorkoutsCopyWith<$Res>? get workouts;
+  $BloodPressureRecordsCopyWith<$Res>? get bloodPressureRecords;
+  $TemperatureRecordsCopyWith<$Res>? get temperatureRecords;
+  $BloodSugarRecordsCopyWith<$Res>? get bloodSugarRecords;
+  $WaterRecordsCopyWith<$Res>? get waterRecords;
+  $StressMoodRecordsCopyWith<$Res>? get stressMoodRecords;
+  $LocalNotificationsCopyWith<$Res>? get notifications;
+  $CourseTreatmentsCopyWith<$Res>? get courseTreatments;
+  $MedicationsCopyWith<$Res>? get medications;
+  $ThemePreferenceCopyWith<$Res>? get themePreference;
 }
 
 /// @nodoc
@@ -137,68 +137,68 @@ class _$FirebaseSyncDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? profile = null,
-    Object? workouts = null,
-    Object? bloodPressureRecords = null,
-    Object? temperatureRecords = null,
-    Object? bloodSugarRecords = null,
-    Object? waterRecords = null,
-    Object? stressMoodRecords = null,
-    Object? notifications = null,
-    Object? courseTreatments = null,
-    Object? medications = null,
-    Object? themePreference = null,
-    Object? locale = null,
+    Object? profile = freezed,
+    Object? workouts = freezed,
+    Object? bloodPressureRecords = freezed,
+    Object? temperatureRecords = freezed,
+    Object? bloodSugarRecords = freezed,
+    Object? waterRecords = freezed,
+    Object? stressMoodRecords = freezed,
+    Object? notifications = freezed,
+    Object? courseTreatments = freezed,
+    Object? medications = freezed,
+    Object? themePreference = freezed,
+    Object? locale = freezed,
   }) {
     return _then(_self.copyWith(
-      profile: null == profile
+      profile: freezed == profile
           ? _self.profile
           : profile // ignore: cast_nullable_to_non_nullable
-              as User,
-      workouts: null == workouts
+              as User?,
+      workouts: freezed == workouts
           ? _self.workouts
           : workouts // ignore: cast_nullable_to_non_nullable
-              as Workouts,
-      bloodPressureRecords: null == bloodPressureRecords
+              as Workouts?,
+      bloodPressureRecords: freezed == bloodPressureRecords
           ? _self.bloodPressureRecords
           : bloodPressureRecords // ignore: cast_nullable_to_non_nullable
-              as BloodPressureRecords,
-      temperatureRecords: null == temperatureRecords
+              as BloodPressureRecords?,
+      temperatureRecords: freezed == temperatureRecords
           ? _self.temperatureRecords
           : temperatureRecords // ignore: cast_nullable_to_non_nullable
-              as TemperatureRecords,
-      bloodSugarRecords: null == bloodSugarRecords
+              as TemperatureRecords?,
+      bloodSugarRecords: freezed == bloodSugarRecords
           ? _self.bloodSugarRecords
           : bloodSugarRecords // ignore: cast_nullable_to_non_nullable
-              as BloodSugarRecords,
-      waterRecords: null == waterRecords
+              as BloodSugarRecords?,
+      waterRecords: freezed == waterRecords
           ? _self.waterRecords
           : waterRecords // ignore: cast_nullable_to_non_nullable
-              as WaterRecords,
-      stressMoodRecords: null == stressMoodRecords
+              as WaterRecords?,
+      stressMoodRecords: freezed == stressMoodRecords
           ? _self.stressMoodRecords
           : stressMoodRecords // ignore: cast_nullable_to_non_nullable
-              as StressMoodRecords,
-      notifications: null == notifications
+              as StressMoodRecords?,
+      notifications: freezed == notifications
           ? _self.notifications
           : notifications // ignore: cast_nullable_to_non_nullable
-              as LocalNotifications,
-      courseTreatments: null == courseTreatments
+              as LocalNotifications?,
+      courseTreatments: freezed == courseTreatments
           ? _self.courseTreatments
           : courseTreatments // ignore: cast_nullable_to_non_nullable
-              as CourseTreatments,
-      medications: null == medications
+              as CourseTreatments?,
+      medications: freezed == medications
           ? _self.medications
           : medications // ignore: cast_nullable_to_non_nullable
-              as Medications,
-      themePreference: null == themePreference
+              as Medications?,
+      themePreference: freezed == themePreference
           ? _self.themePreference
           : themePreference // ignore: cast_nullable_to_non_nullable
-              as ThemePreference,
-      locale: null == locale
+              as ThemePreference?,
+      locale: freezed == locale
           ? _self.locale
           : locale // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 
@@ -206,8 +206,12 @@ class _$FirebaseSyncDataCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UserCopyWith<$Res> get profile {
-    return $UserCopyWith<$Res>(_self.profile, (value) {
+  $UserCopyWith<$Res>? get profile {
+    if (_self.profile == null) {
+      return null;
+    }
+
+    return $UserCopyWith<$Res>(_self.profile!, (value) {
       return _then(_self.copyWith(profile: value));
     });
   }
@@ -216,8 +220,12 @@ class _$FirebaseSyncDataCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $WorkoutsCopyWith<$Res> get workouts {
-    return $WorkoutsCopyWith<$Res>(_self.workouts, (value) {
+  $WorkoutsCopyWith<$Res>? get workouts {
+    if (_self.workouts == null) {
+      return null;
+    }
+
+    return $WorkoutsCopyWith<$Res>(_self.workouts!, (value) {
       return _then(_self.copyWith(workouts: value));
     });
   }
@@ -226,8 +234,12 @@ class _$FirebaseSyncDataCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $BloodPressureRecordsCopyWith<$Res> get bloodPressureRecords {
-    return $BloodPressureRecordsCopyWith<$Res>(_self.bloodPressureRecords,
+  $BloodPressureRecordsCopyWith<$Res>? get bloodPressureRecords {
+    if (_self.bloodPressureRecords == null) {
+      return null;
+    }
+
+    return $BloodPressureRecordsCopyWith<$Res>(_self.bloodPressureRecords!,
         (value) {
       return _then(_self.copyWith(bloodPressureRecords: value));
     });
@@ -237,8 +249,13 @@ class _$FirebaseSyncDataCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $TemperatureRecordsCopyWith<$Res> get temperatureRecords {
-    return $TemperatureRecordsCopyWith<$Res>(_self.temperatureRecords, (value) {
+  $TemperatureRecordsCopyWith<$Res>? get temperatureRecords {
+    if (_self.temperatureRecords == null) {
+      return null;
+    }
+
+    return $TemperatureRecordsCopyWith<$Res>(_self.temperatureRecords!,
+        (value) {
       return _then(_self.copyWith(temperatureRecords: value));
     });
   }
@@ -247,8 +264,12 @@ class _$FirebaseSyncDataCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $BloodSugarRecordsCopyWith<$Res> get bloodSugarRecords {
-    return $BloodSugarRecordsCopyWith<$Res>(_self.bloodSugarRecords, (value) {
+  $BloodSugarRecordsCopyWith<$Res>? get bloodSugarRecords {
+    if (_self.bloodSugarRecords == null) {
+      return null;
+    }
+
+    return $BloodSugarRecordsCopyWith<$Res>(_self.bloodSugarRecords!, (value) {
       return _then(_self.copyWith(bloodSugarRecords: value));
     });
   }
@@ -257,8 +278,12 @@ class _$FirebaseSyncDataCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $WaterRecordsCopyWith<$Res> get waterRecords {
-    return $WaterRecordsCopyWith<$Res>(_self.waterRecords, (value) {
+  $WaterRecordsCopyWith<$Res>? get waterRecords {
+    if (_self.waterRecords == null) {
+      return null;
+    }
+
+    return $WaterRecordsCopyWith<$Res>(_self.waterRecords!, (value) {
       return _then(_self.copyWith(waterRecords: value));
     });
   }
@@ -267,8 +292,12 @@ class _$FirebaseSyncDataCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $StressMoodRecordsCopyWith<$Res> get stressMoodRecords {
-    return $StressMoodRecordsCopyWith<$Res>(_self.stressMoodRecords, (value) {
+  $StressMoodRecordsCopyWith<$Res>? get stressMoodRecords {
+    if (_self.stressMoodRecords == null) {
+      return null;
+    }
+
+    return $StressMoodRecordsCopyWith<$Res>(_self.stressMoodRecords!, (value) {
       return _then(_self.copyWith(stressMoodRecords: value));
     });
   }
@@ -277,8 +306,12 @@ class _$FirebaseSyncDataCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $LocalNotificationsCopyWith<$Res> get notifications {
-    return $LocalNotificationsCopyWith<$Res>(_self.notifications, (value) {
+  $LocalNotificationsCopyWith<$Res>? get notifications {
+    if (_self.notifications == null) {
+      return null;
+    }
+
+    return $LocalNotificationsCopyWith<$Res>(_self.notifications!, (value) {
       return _then(_self.copyWith(notifications: value));
     });
   }
@@ -287,8 +320,12 @@ class _$FirebaseSyncDataCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $CourseTreatmentsCopyWith<$Res> get courseTreatments {
-    return $CourseTreatmentsCopyWith<$Res>(_self.courseTreatments, (value) {
+  $CourseTreatmentsCopyWith<$Res>? get courseTreatments {
+    if (_self.courseTreatments == null) {
+      return null;
+    }
+
+    return $CourseTreatmentsCopyWith<$Res>(_self.courseTreatments!, (value) {
       return _then(_self.copyWith(courseTreatments: value));
     });
   }
@@ -297,8 +334,12 @@ class _$FirebaseSyncDataCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $MedicationsCopyWith<$Res> get medications {
-    return $MedicationsCopyWith<$Res>(_self.medications, (value) {
+  $MedicationsCopyWith<$Res>? get medications {
+    if (_self.medications == null) {
+      return null;
+    }
+
+    return $MedicationsCopyWith<$Res>(_self.medications!, (value) {
       return _then(_self.copyWith(medications: value));
     });
   }
@@ -307,8 +348,12 @@ class _$FirebaseSyncDataCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ThemePreferenceCopyWith<$Res> get themePreference {
-    return $ThemePreferenceCopyWith<$Res>(_self.themePreference, (value) {
+  $ThemePreferenceCopyWith<$Res>? get themePreference {
+    if (_self.themePreference == null) {
+      return null;
+    }
+
+    return $ThemePreferenceCopyWith<$Res>(_self.themePreference!, (value) {
       return _then(_self.copyWith(themePreference: value));
     });
   }
@@ -318,45 +363,45 @@ class _$FirebaseSyncDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _FirebaseSyncData implements FirebaseSyncData {
   const _FirebaseSyncData(
-      {required this.profile,
-      required this.workouts,
-      required this.bloodPressureRecords,
-      required this.temperatureRecords,
-      required this.bloodSugarRecords,
-      required this.waterRecords,
-      required this.stressMoodRecords,
-      required this.notifications,
-      required this.courseTreatments,
-      required this.medications,
-      required this.themePreference,
-      required this.locale});
+      {this.profile,
+      this.workouts,
+      this.bloodPressureRecords,
+      this.temperatureRecords,
+      this.bloodSugarRecords,
+      this.waterRecords,
+      this.stressMoodRecords,
+      this.notifications,
+      this.courseTreatments,
+      this.medications,
+      this.themePreference,
+      this.locale});
   factory _FirebaseSyncData.fromJson(Map<String, dynamic> json) =>
       _$FirebaseSyncDataFromJson(json);
 
   @override
-  final User profile;
+  final User? profile;
   @override
-  final Workouts workouts;
+  final Workouts? workouts;
   @override
-  final BloodPressureRecords bloodPressureRecords;
+  final BloodPressureRecords? bloodPressureRecords;
   @override
-  final TemperatureRecords temperatureRecords;
+  final TemperatureRecords? temperatureRecords;
   @override
-  final BloodSugarRecords bloodSugarRecords;
+  final BloodSugarRecords? bloodSugarRecords;
   @override
-  final WaterRecords waterRecords;
+  final WaterRecords? waterRecords;
   @override
-  final StressMoodRecords stressMoodRecords;
+  final StressMoodRecords? stressMoodRecords;
   @override
-  final LocalNotifications notifications;
+  final LocalNotifications? notifications;
   @override
-  final CourseTreatments courseTreatments;
+  final CourseTreatments? courseTreatments;
   @override
-  final Medications medications;
+  final Medications? medications;
   @override
-  final ThemePreference themePreference;
+  final ThemePreference? themePreference;
   @override
-  final String locale;
+  final String? locale;
 
   /// Create a copy of FirebaseSyncData
   /// with the given fields replaced by the non-null parameter values.
@@ -434,41 +479,41 @@ abstract mixin class _$FirebaseSyncDataCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {User profile,
-      Workouts workouts,
-      BloodPressureRecords bloodPressureRecords,
-      TemperatureRecords temperatureRecords,
-      BloodSugarRecords bloodSugarRecords,
-      WaterRecords waterRecords,
-      StressMoodRecords stressMoodRecords,
-      LocalNotifications notifications,
-      CourseTreatments courseTreatments,
-      Medications medications,
-      ThemePreference themePreference,
-      String locale});
+      {User? profile,
+      Workouts? workouts,
+      BloodPressureRecords? bloodPressureRecords,
+      TemperatureRecords? temperatureRecords,
+      BloodSugarRecords? bloodSugarRecords,
+      WaterRecords? waterRecords,
+      StressMoodRecords? stressMoodRecords,
+      LocalNotifications? notifications,
+      CourseTreatments? courseTreatments,
+      Medications? medications,
+      ThemePreference? themePreference,
+      String? locale});
 
   @override
-  $UserCopyWith<$Res> get profile;
+  $UserCopyWith<$Res>? get profile;
   @override
-  $WorkoutsCopyWith<$Res> get workouts;
+  $WorkoutsCopyWith<$Res>? get workouts;
   @override
-  $BloodPressureRecordsCopyWith<$Res> get bloodPressureRecords;
+  $BloodPressureRecordsCopyWith<$Res>? get bloodPressureRecords;
   @override
-  $TemperatureRecordsCopyWith<$Res> get temperatureRecords;
+  $TemperatureRecordsCopyWith<$Res>? get temperatureRecords;
   @override
-  $BloodSugarRecordsCopyWith<$Res> get bloodSugarRecords;
+  $BloodSugarRecordsCopyWith<$Res>? get bloodSugarRecords;
   @override
-  $WaterRecordsCopyWith<$Res> get waterRecords;
+  $WaterRecordsCopyWith<$Res>? get waterRecords;
   @override
-  $StressMoodRecordsCopyWith<$Res> get stressMoodRecords;
+  $StressMoodRecordsCopyWith<$Res>? get stressMoodRecords;
   @override
-  $LocalNotificationsCopyWith<$Res> get notifications;
+  $LocalNotificationsCopyWith<$Res>? get notifications;
   @override
-  $CourseTreatmentsCopyWith<$Res> get courseTreatments;
+  $CourseTreatmentsCopyWith<$Res>? get courseTreatments;
   @override
-  $MedicationsCopyWith<$Res> get medications;
+  $MedicationsCopyWith<$Res>? get medications;
   @override
-  $ThemePreferenceCopyWith<$Res> get themePreference;
+  $ThemePreferenceCopyWith<$Res>? get themePreference;
 }
 
 /// @nodoc
@@ -484,68 +529,68 @@ class __$FirebaseSyncDataCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? profile = null,
-    Object? workouts = null,
-    Object? bloodPressureRecords = null,
-    Object? temperatureRecords = null,
-    Object? bloodSugarRecords = null,
-    Object? waterRecords = null,
-    Object? stressMoodRecords = null,
-    Object? notifications = null,
-    Object? courseTreatments = null,
-    Object? medications = null,
-    Object? themePreference = null,
-    Object? locale = null,
+    Object? profile = freezed,
+    Object? workouts = freezed,
+    Object? bloodPressureRecords = freezed,
+    Object? temperatureRecords = freezed,
+    Object? bloodSugarRecords = freezed,
+    Object? waterRecords = freezed,
+    Object? stressMoodRecords = freezed,
+    Object? notifications = freezed,
+    Object? courseTreatments = freezed,
+    Object? medications = freezed,
+    Object? themePreference = freezed,
+    Object? locale = freezed,
   }) {
     return _then(_FirebaseSyncData(
-      profile: null == profile
+      profile: freezed == profile
           ? _self.profile
           : profile // ignore: cast_nullable_to_non_nullable
-              as User,
-      workouts: null == workouts
+              as User?,
+      workouts: freezed == workouts
           ? _self.workouts
           : workouts // ignore: cast_nullable_to_non_nullable
-              as Workouts,
-      bloodPressureRecords: null == bloodPressureRecords
+              as Workouts?,
+      bloodPressureRecords: freezed == bloodPressureRecords
           ? _self.bloodPressureRecords
           : bloodPressureRecords // ignore: cast_nullable_to_non_nullable
-              as BloodPressureRecords,
-      temperatureRecords: null == temperatureRecords
+              as BloodPressureRecords?,
+      temperatureRecords: freezed == temperatureRecords
           ? _self.temperatureRecords
           : temperatureRecords // ignore: cast_nullable_to_non_nullable
-              as TemperatureRecords,
-      bloodSugarRecords: null == bloodSugarRecords
+              as TemperatureRecords?,
+      bloodSugarRecords: freezed == bloodSugarRecords
           ? _self.bloodSugarRecords
           : bloodSugarRecords // ignore: cast_nullable_to_non_nullable
-              as BloodSugarRecords,
-      waterRecords: null == waterRecords
+              as BloodSugarRecords?,
+      waterRecords: freezed == waterRecords
           ? _self.waterRecords
           : waterRecords // ignore: cast_nullable_to_non_nullable
-              as WaterRecords,
-      stressMoodRecords: null == stressMoodRecords
+              as WaterRecords?,
+      stressMoodRecords: freezed == stressMoodRecords
           ? _self.stressMoodRecords
           : stressMoodRecords // ignore: cast_nullable_to_non_nullable
-              as StressMoodRecords,
-      notifications: null == notifications
+              as StressMoodRecords?,
+      notifications: freezed == notifications
           ? _self.notifications
           : notifications // ignore: cast_nullable_to_non_nullable
-              as LocalNotifications,
-      courseTreatments: null == courseTreatments
+              as LocalNotifications?,
+      courseTreatments: freezed == courseTreatments
           ? _self.courseTreatments
           : courseTreatments // ignore: cast_nullable_to_non_nullable
-              as CourseTreatments,
-      medications: null == medications
+              as CourseTreatments?,
+      medications: freezed == medications
           ? _self.medications
           : medications // ignore: cast_nullable_to_non_nullable
-              as Medications,
-      themePreference: null == themePreference
+              as Medications?,
+      themePreference: freezed == themePreference
           ? _self.themePreference
           : themePreference // ignore: cast_nullable_to_non_nullable
-              as ThemePreference,
-      locale: null == locale
+              as ThemePreference?,
+      locale: freezed == locale
           ? _self.locale
           : locale // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 
@@ -553,8 +598,12 @@ class __$FirebaseSyncDataCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $UserCopyWith<$Res> get profile {
-    return $UserCopyWith<$Res>(_self.profile, (value) {
+  $UserCopyWith<$Res>? get profile {
+    if (_self.profile == null) {
+      return null;
+    }
+
+    return $UserCopyWith<$Res>(_self.profile!, (value) {
       return _then(_self.copyWith(profile: value));
     });
   }
@@ -563,8 +612,12 @@ class __$FirebaseSyncDataCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $WorkoutsCopyWith<$Res> get workouts {
-    return $WorkoutsCopyWith<$Res>(_self.workouts, (value) {
+  $WorkoutsCopyWith<$Res>? get workouts {
+    if (_self.workouts == null) {
+      return null;
+    }
+
+    return $WorkoutsCopyWith<$Res>(_self.workouts!, (value) {
       return _then(_self.copyWith(workouts: value));
     });
   }
@@ -573,8 +626,12 @@ class __$FirebaseSyncDataCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $BloodPressureRecordsCopyWith<$Res> get bloodPressureRecords {
-    return $BloodPressureRecordsCopyWith<$Res>(_self.bloodPressureRecords,
+  $BloodPressureRecordsCopyWith<$Res>? get bloodPressureRecords {
+    if (_self.bloodPressureRecords == null) {
+      return null;
+    }
+
+    return $BloodPressureRecordsCopyWith<$Res>(_self.bloodPressureRecords!,
         (value) {
       return _then(_self.copyWith(bloodPressureRecords: value));
     });
@@ -584,8 +641,13 @@ class __$FirebaseSyncDataCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $TemperatureRecordsCopyWith<$Res> get temperatureRecords {
-    return $TemperatureRecordsCopyWith<$Res>(_self.temperatureRecords, (value) {
+  $TemperatureRecordsCopyWith<$Res>? get temperatureRecords {
+    if (_self.temperatureRecords == null) {
+      return null;
+    }
+
+    return $TemperatureRecordsCopyWith<$Res>(_self.temperatureRecords!,
+        (value) {
       return _then(_self.copyWith(temperatureRecords: value));
     });
   }
@@ -594,8 +656,12 @@ class __$FirebaseSyncDataCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $BloodSugarRecordsCopyWith<$Res> get bloodSugarRecords {
-    return $BloodSugarRecordsCopyWith<$Res>(_self.bloodSugarRecords, (value) {
+  $BloodSugarRecordsCopyWith<$Res>? get bloodSugarRecords {
+    if (_self.bloodSugarRecords == null) {
+      return null;
+    }
+
+    return $BloodSugarRecordsCopyWith<$Res>(_self.bloodSugarRecords!, (value) {
       return _then(_self.copyWith(bloodSugarRecords: value));
     });
   }
@@ -604,8 +670,12 @@ class __$FirebaseSyncDataCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $WaterRecordsCopyWith<$Res> get waterRecords {
-    return $WaterRecordsCopyWith<$Res>(_self.waterRecords, (value) {
+  $WaterRecordsCopyWith<$Res>? get waterRecords {
+    if (_self.waterRecords == null) {
+      return null;
+    }
+
+    return $WaterRecordsCopyWith<$Res>(_self.waterRecords!, (value) {
       return _then(_self.copyWith(waterRecords: value));
     });
   }
@@ -614,8 +684,12 @@ class __$FirebaseSyncDataCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $StressMoodRecordsCopyWith<$Res> get stressMoodRecords {
-    return $StressMoodRecordsCopyWith<$Res>(_self.stressMoodRecords, (value) {
+  $StressMoodRecordsCopyWith<$Res>? get stressMoodRecords {
+    if (_self.stressMoodRecords == null) {
+      return null;
+    }
+
+    return $StressMoodRecordsCopyWith<$Res>(_self.stressMoodRecords!, (value) {
       return _then(_self.copyWith(stressMoodRecords: value));
     });
   }
@@ -624,8 +698,12 @@ class __$FirebaseSyncDataCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $LocalNotificationsCopyWith<$Res> get notifications {
-    return $LocalNotificationsCopyWith<$Res>(_self.notifications, (value) {
+  $LocalNotificationsCopyWith<$Res>? get notifications {
+    if (_self.notifications == null) {
+      return null;
+    }
+
+    return $LocalNotificationsCopyWith<$Res>(_self.notifications!, (value) {
       return _then(_self.copyWith(notifications: value));
     });
   }
@@ -634,8 +712,12 @@ class __$FirebaseSyncDataCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $CourseTreatmentsCopyWith<$Res> get courseTreatments {
-    return $CourseTreatmentsCopyWith<$Res>(_self.courseTreatments, (value) {
+  $CourseTreatmentsCopyWith<$Res>? get courseTreatments {
+    if (_self.courseTreatments == null) {
+      return null;
+    }
+
+    return $CourseTreatmentsCopyWith<$Res>(_self.courseTreatments!, (value) {
       return _then(_self.copyWith(courseTreatments: value));
     });
   }
@@ -644,8 +726,12 @@ class __$FirebaseSyncDataCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $MedicationsCopyWith<$Res> get medications {
-    return $MedicationsCopyWith<$Res>(_self.medications, (value) {
+  $MedicationsCopyWith<$Res>? get medications {
+    if (_self.medications == null) {
+      return null;
+    }
+
+    return $MedicationsCopyWith<$Res>(_self.medications!, (value) {
       return _then(_self.copyWith(medications: value));
     });
   }
@@ -654,8 +740,12 @@ class __$FirebaseSyncDataCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ThemePreferenceCopyWith<$Res> get themePreference {
-    return $ThemePreferenceCopyWith<$Res>(_self.themePreference, (value) {
+  $ThemePreferenceCopyWith<$Res>? get themePreference {
+    if (_self.themePreference == null) {
+      return null;
+    }
+
+    return $ThemePreferenceCopyWith<$Res>(_self.themePreference!, (value) {
       return _then(_self.copyWith(themePreference: value));
     });
   }

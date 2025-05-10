@@ -45,7 +45,7 @@ class BloodSugarTrendLineChart extends StatelessWidget {
       spots.add(FlSpot(i.toDouble(), avgGlucose));
     }
 
-    final double margin = (maxY - minY) * 0.1;
+    final double margin = (maxY - minY) * 0.1 == 0 ? 1 : (maxY - minY) * 0.1;
     final double chartMinY = minY - margin;
     final double chartMaxY = maxY + margin;
     final double rightInterval = (chartMaxY - chartMinY) / 3;

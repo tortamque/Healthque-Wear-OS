@@ -48,14 +48,14 @@ class HealthqueWearOSApp extends StatelessWidget {
             sl<MedicationTrackingHiveManager>(),
             sl<ThemePreferenceHiveManager>(),
             sl<LocaleHiveManager>(),
-          )..init(),
-          lazy: false,
+          ),
         ),
       ],
       child: BlocBuilder<FirebaseSyncCubit, FirebaseSyncState>(
         builder: (context, state) {
-          final locale = state.syncData?.locale ?? defaultLocale;
-          final color = Color(state.syncData?.themePreference.seedColorValue ?? defaultColorSeed);
+          final retrievedLocale = state.syncData?.locale;
+          final locale = (retrievedLocale == null || retrievedLocale.isEmpty) ? defaultLocale : retrievedLocale;
+          final color = Color(state.syncData?.themePreference?.seedColorValue ?? defaultColorSeed);
 
           return MaterialApp.router(
             debugShowCheckedModeBanner: false,
@@ -92,7 +92,6 @@ Future<void> _initHive() async {
   Hive.registerAdapter(CourseTreatmentsAdapter());
   Hive.registerAdapter(CourseTreatmentEntryAdapter());
   Hive.registerAdapter(CourseTreatmentAdapter());
-  Hive.registerAdapter(DateTimeComponentsAdapter());
   Hive.registerAdapter(WaterRecordAdapter());
   Hive.registerAdapter(WaterRecordsAdapter());
   Hive.registerAdapter(TemperatureRecordsAdapter());

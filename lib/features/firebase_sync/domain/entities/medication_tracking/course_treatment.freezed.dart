@@ -25,8 +25,6 @@ mixin _$CourseTreatment {
   DateTime get courseEnd;
   @HiveField(4)
   DateTime get medicationTime;
-  @HiveField(5)
-  DateTimeComponents get repeatInterval;
 
   /// Create a copy of CourseTreatment
   /// with the given fields replaced by the non-null parameter values.
@@ -51,9 +49,7 @@ mixin _$CourseTreatment {
             (identical(other.courseEnd, courseEnd) ||
                 other.courseEnd == courseEnd) &&
             (identical(other.medicationTime, medicationTime) ||
-                other.medicationTime == medicationTime) &&
-            (identical(other.repeatInterval, repeatInterval) ||
-                other.repeatInterval == repeatInterval));
+                other.medicationTime == medicationTime));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -64,12 +60,11 @@ mixin _$CourseTreatment {
       const DeepCollectionEquality().hash(entries),
       courseStart,
       courseEnd,
-      medicationTime,
-      repeatInterval);
+      medicationTime);
 
   @override
   String toString() {
-    return 'CourseTreatment(id: $id, entries: $entries, courseStart: $courseStart, courseEnd: $courseEnd, medicationTime: $medicationTime, repeatInterval: $repeatInterval)';
+    return 'CourseTreatment(id: $id, entries: $entries, courseStart: $courseStart, courseEnd: $courseEnd, medicationTime: $medicationTime)';
   }
 }
 
@@ -84,8 +79,7 @@ abstract mixin class $CourseTreatmentCopyWith<$Res> {
       @HiveField(1) List<CourseTreatmentEntry> entries,
       @HiveField(2) DateTime courseStart,
       @HiveField(3) DateTime courseEnd,
-      @HiveField(4) DateTime medicationTime,
-      @HiveField(5) DateTimeComponents repeatInterval});
+      @HiveField(4) DateTime medicationTime});
 }
 
 /// @nodoc
@@ -106,7 +100,6 @@ class _$CourseTreatmentCopyWithImpl<$Res>
     Object? courseStart = null,
     Object? courseEnd = null,
     Object? medicationTime = null,
-    Object? repeatInterval = null,
   }) {
     return _then(_self.copyWith(
       id: null == id
@@ -129,10 +122,6 @@ class _$CourseTreatmentCopyWithImpl<$Res>
           ? _self.medicationTime
           : medicationTime // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      repeatInterval: null == repeatInterval
-          ? _self.repeatInterval
-          : repeatInterval // ignore: cast_nullable_to_non_nullable
-              as DateTimeComponents,
     ));
   }
 }
@@ -145,8 +134,7 @@ class _CourseTreatment implements CourseTreatment {
       @HiveField(1) required final List<CourseTreatmentEntry> entries,
       @HiveField(2) required this.courseStart,
       @HiveField(3) required this.courseEnd,
-      @HiveField(4) required this.medicationTime,
-      @HiveField(5) required this.repeatInterval})
+      @HiveField(4) required this.medicationTime})
       : _entries = entries;
   factory _CourseTreatment.fromJson(Map<String, dynamic> json) =>
       _$CourseTreatmentFromJson(json);
@@ -172,9 +160,6 @@ class _CourseTreatment implements CourseTreatment {
   @override
   @HiveField(4)
   final DateTime medicationTime;
-  @override
-  @HiveField(5)
-  final DateTimeComponents repeatInterval;
 
   /// Create a copy of CourseTreatment
   /// with the given fields replaced by the non-null parameter values.
@@ -203,9 +188,7 @@ class _CourseTreatment implements CourseTreatment {
             (identical(other.courseEnd, courseEnd) ||
                 other.courseEnd == courseEnd) &&
             (identical(other.medicationTime, medicationTime) ||
-                other.medicationTime == medicationTime) &&
-            (identical(other.repeatInterval, repeatInterval) ||
-                other.repeatInterval == repeatInterval));
+                other.medicationTime == medicationTime));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -216,12 +199,11 @@ class _CourseTreatment implements CourseTreatment {
       const DeepCollectionEquality().hash(_entries),
       courseStart,
       courseEnd,
-      medicationTime,
-      repeatInterval);
+      medicationTime);
 
   @override
   String toString() {
-    return 'CourseTreatment(id: $id, entries: $entries, courseStart: $courseStart, courseEnd: $courseEnd, medicationTime: $medicationTime, repeatInterval: $repeatInterval)';
+    return 'CourseTreatment(id: $id, entries: $entries, courseStart: $courseStart, courseEnd: $courseEnd, medicationTime: $medicationTime)';
   }
 }
 
@@ -238,8 +220,7 @@ abstract mixin class _$CourseTreatmentCopyWith<$Res>
       @HiveField(1) List<CourseTreatmentEntry> entries,
       @HiveField(2) DateTime courseStart,
       @HiveField(3) DateTime courseEnd,
-      @HiveField(4) DateTime medicationTime,
-      @HiveField(5) DateTimeComponents repeatInterval});
+      @HiveField(4) DateTime medicationTime});
 }
 
 /// @nodoc
@@ -260,7 +241,6 @@ class __$CourseTreatmentCopyWithImpl<$Res>
     Object? courseStart = null,
     Object? courseEnd = null,
     Object? medicationTime = null,
-    Object? repeatInterval = null,
   }) {
     return _then(_CourseTreatment(
       id: null == id
@@ -283,10 +263,6 @@ class __$CourseTreatmentCopyWithImpl<$Res>
           ? _self.medicationTime
           : medicationTime // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      repeatInterval: null == repeatInterval
-          ? _self.repeatInterval
-          : repeatInterval // ignore: cast_nullable_to_non_nullable
-              as DateTimeComponents,
     ));
   }
 }
