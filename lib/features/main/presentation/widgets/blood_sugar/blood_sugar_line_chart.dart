@@ -51,7 +51,7 @@ class BloodSugarTrendLineChart extends StatelessWidget {
     final double rightInterval = (chartMaxY - chartMinY) / 3;
 
     return AspectRatio(
-      aspectRatio: 1,
+      aspectRatio: 1.5,
       child: LineChart(
         LineChartData(
           lineTouchData: LineTouchData(enabled: false),
